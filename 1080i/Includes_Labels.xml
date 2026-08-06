@@ -2975,6 +2975,13 @@
         <value>$LOCALIZE[31613] ($LOCALIZE[571])</value>
     </variable>
 
+    <variable name="Label_Skin_Settings_Font_Selected">
+        <value condition="String.IsEqual(Skin.String(settingskinfont),1)">Default ($LOCALIZE[571])</value>
+        <value condition="String.IsEqual(Skin.String(settingskinfont),2)">ايفون</value>
+        <value condition="String.IsEqual(Skin.String(settingskinfont),3)">تونس</value>
+        <value>Default ($LOCALIZE[571])</value>
+    </variable>
+
     <variable name="Label_Skin_Settings_Perf_Selected">
         <value condition="String.IsEqual(Skin.String(settingperflevel),1)">$LOCALIZE[31610]</value>
         <value condition="String.IsEqual(Skin.String(settingperflevel),2)">$LOCALIZE[31611] ($LOCALIZE[571])</value>
@@ -2992,19 +2999,6 @@
         <value condition="String.IsEqual(Skin.String(settingpresetcolor),7)">$LOCALIZE[31491]</value>
         <value condition="String.IsEqual(Skin.String(settingpresetcolor),8)">$INFO[Skin.String(color.preset.name.own)] - $LOCALIZE[31455]</value>
         <value>$LOCALIZE[31455]</value>
-    </variable>
-
-    <variable name="Label_Skin_Settings_Skin_Font_Selected">
-        <value condition="String.IsEqual(Skin.String(settingskinfont),1)">Default ($LOCALIZE[571])</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),2)">Fallback</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),3)">Fallback bold</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),4)">Arial</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),5)">Arial 2</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),6)">AZ Reloaded</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),7)">AZ Standard</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),8)">AZ Standard bold</value>
-        <value condition="String.IsEqual(Skin.String(settingskinfont),9)">Segoe Light</value>
-        <value>$INFO[Skin.Font] ($LOCALIZE[571])</value>
     </variable>
 
     <variable name="Label_Skin_Settings_Background_Brightness_Views_Selected">
@@ -3260,13 +3254,8 @@
         <value condition="Window.IsVisible(Custom_1156_Set_Skin_Preset_Color.xml)">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1157_Set_Skin_Brightness_Views.xml)">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1158_Set_Skin_Brightness_Flix.xml)">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
-        <value condition="Window.IsVisible(Custom_1159_Set_Skin_Font.xml)">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1288_Debugging.xml) + ControlGroup(11).HasFocus()">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1288_Debugging.xml) + ControlGroup(12).HasFocus()">$INFO[Container(12).CurrentItem]$INFO[Container(12).NumItems, / ,]</value>
-        <value condition="Window.IsVisible(Custom_1260_DialogInfo_Music_Settings.xml) + ControlGroup(11).HasFocus()">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
-        <value condition="Window.IsVisible(Custom_1260_DialogInfo_Music_Settings.xml) + ControlGroup(12).HasFocus()">$INFO[Container(12).CurrentItem]$INFO[Container(12).NumItems, / ,]</value>
-        <value condition="Window.IsVisible(Custom_1261_DialogInfo_Video_Settings.xml) + ControlGroup(11).HasFocus()">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
-        <value condition="Window.IsVisible(Custom_1261_DialogInfo_Video_Settings.xml) + ControlGroup(12).HasFocus()">$INFO[Container(12).CurrentItem]$INFO[Container(12).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1149_Set_Media_Flags.xml) + ControlGroup(11).HasFocus()">$INFO[Container(11).CurrentItem]$INFO[Container(11).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1149_Set_Media_Flags.xml) + ControlGroup(12).HasFocus()">$INFO[Container(12).CurrentItem]$INFO[Container(12).NumItems, / ,]</value>
         <value condition="Window.IsVisible(DialogSubtitles.xml)">$INFO[Container(120).CurrentItem]$INFO[Container(120).NumItems, / ,]</value>
@@ -3283,6 +3272,8 @@
     </variable>
 
     <variable name="Label_Dialog_Select_Num_Item_Footer">
+        <value condition="Window.IsVisible(FileManager.xml) + [Control.HasFocus(20) | Control.HasFocus(1824)]">$INFO[Container(20).CurrentItem]$INFO[Container(20).NumItems, / ,]</value>
+        <value condition="Window.IsVisible(FileManager.xml) + [Control.HasFocus(21) | Control.HasFocus(1825)]">$INFO[Container(21).CurrentItem]$INFO[Container(21).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1111_Hub_Movies.xml)">$INFO[Container(9500).CurrentItem]$INFO[Container(9500).NumItems, / ,]</value>
         <value condition="Window.IsVisible(Custom_1112_Hub_TvShows.xml)">$INFO[Container(9500).CurrentItem]$INFO[Container(9500).NumItems, / ,]</value>
         <value condition="Container.Content(Seasons) + Control.IsVisible(5161)">$INFO[Container(5161).CurrentItem]$INFO[Container(5161).NumItems, / ,]</value>

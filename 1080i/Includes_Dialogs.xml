@@ -249,10 +249,10 @@
         <definition>
             <visible>$PARAM[visible]</visible>
 
-            <include>$PARAM[animation_fade_in]</include>
-            <include>$PARAM[animation_fade_out]</include>
+            <include condition="!$EXP[Condition_Show_Button_Setup_Wizard]">$PARAM[animation_fade_in]</include>
+            <include condition="!$EXP[Condition_Show_Button_Setup_Wizard]">$PARAM[animation_fade_out]</include>
 
-            <include>Animation_Dialog_Menu_Right_Side</include>
+            <include condition="$EXP[Condition_Show_Button_Setup_Wizard]">Animation_Dialog_Menu_Prec_Next_Side</include>
 
             <centerleft>$PARAM[centerleft]</centerleft>
             <centertop>$PARAM[centertop]</centertop>
@@ -618,8 +618,7 @@
                             <item>
                                 <label>5</label>
                                 <icon>special://skin/extras/icons/addons.png</icon>
-                                <onclick condition="Window.IsVisible(DialogMusicInfo.xml)">ActivateWindow(1260)</onclick>
-                                <onclick condition="Window.IsVisible(DialogVideoInfo.xml)">ActivateWindow(1261)</onclick>
+                                <onclick>ActivateWindow(1260)</onclick>
                             </item>
                         </content>
                     </control>
@@ -2970,8 +2969,7 @@
 
                     <onclick condition="Window.IsVisible(Custom_1154_Set_Settings_Perfomance.xml)">ActivateWindow(1153)</onclick>
                     <onclick condition="Window.IsVisible(Custom_1155_Set_Skin_Theme_Color.xml)">ActivateWindow(1154)</onclick>
-                    <onclick condition="Window.IsVisible(Custom_1156_Set_Skin_Preset_Color.xml)">ActivateWindow(1159)</onclick>
-                    <onclick condition="Window.IsVisible(Custom_1159_Set_Skin_Font.xml)">ActivateWindow(1155)</onclick>
+                    <onclick condition="Window.IsVisible(Custom_1156_Set_Skin_Preset_Color.xml)">ActivateWindow(1155)</onclick>
                 </control>
             </control>
 
@@ -3007,8 +3005,7 @@
 
                     <onclick condition="Window.IsVisible(Custom_1153_Set_Viewtype_Home.xml)">ActivateWindow(1154)</onclick>
                     <onclick condition="Window.IsVisible(Custom_1154_Set_Settings_Perfomance.xml)">ActivateWindow(1155)</onclick>
-                    <onclick condition="Window.IsVisible(Custom_1155_Set_Skin_Theme_Color.xml)">ActivateWindow(1159)</onclick>
-                    <onclick condition="Window.IsVisible(Custom_1159_Set_Skin_Font.xml)">ActivateWindow(1156)</onclick>
+                    <onclick condition="Window.IsVisible(Custom_1155_Set_Skin_Theme_Color.xml)">ActivateWindow(1156)</onclick>
                 </control>
             </control>
 

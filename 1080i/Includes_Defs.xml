@@ -159,9 +159,8 @@
 
             <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1153)">AlarmClock(DelayReload1153,ActivateWindow(1154),00:01,silent)</onfocus>
             <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1154)">AlarmClock(DelayReload1154,ActivateWindow(1155),00:01,silent)</onfocus>
-            <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1155) + String.IsEmpty(Window(Home).Property(autocolors_enable))">AlarmClock(DelayReload1155,ActivateWindow(1159),00:01,silent)</onfocus>
-            <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1155) + !String.IsEmpty(Window(Home).Property(autocolors_enable))">AlarmClock(DelayReload1155,ActivateWindow(1159),00:07,silent)</onfocus>
-            <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1159)">AlarmClock(DelayReload1156,ActivateWindow(1156),00:01,silent)</onfocus>
+            <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1155) + String.IsEmpty(Window(Home).Property(autocolors_enable))">AlarmClock(DelayReload1155,ActivateWindow(1156),00:01,silent)</onfocus>
+            <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1155) + !String.IsEmpty(Window(Home).Property(autocolors_enable))">AlarmClock(DelayReload1155,ActivateWindow(1156),00:07,silent)</onfocus>
             <onfocus condition="String.IsEqual(Window(Home).Property(reloadsetupwizard),1156)">AlarmClock(DelayReload1156,ActivateWindow(1156),00:01,silent)</onfocus>
         </control>
     </include>
@@ -294,7 +293,7 @@
     <!-- ART - ROUNDERD 12 / 24 -->
 
     <include name="Def_Art_Icon_Image">
-        <param name="colordiffuse" value="$PARAM[colordiffuse]" default="Dark2" />
+        <param name="colordiffuse" value="$PARAM[colordiffuse]" default="IconOnFallback" />
 
         <param name="pad_image" value="$PARAM[pad_image]" default="0" />
         <param name="fadetime" value="$PARAM[fadetime]" default="PosterFanartFadetime" />
@@ -390,7 +389,7 @@
 
     <include name="Def_Art_Icon">
         <param name="pad_image" value="$PARAM[pad_image]" default="0" />
-        <param name="colordiffuse_icon" value="$PARAM[colordiffuse_icon]" default="Dark2" />
+        <param name="colordiffuse_icon" value="$PARAM[colordiffuse_icon]" default="IconOnFallback" />
 
         <param name="texture" value="$PARAM[texture]" default="$VAR[Image_Context_Menu_Poster]" />
         <param name="aspectratio" value="$PARAM[aspectratio]" default="keep" />
@@ -681,7 +680,7 @@
 
                 <control type="label">
                     <include>Def_Label_Header_Sub_Icon_Definition</include>
-                    <label>   &#61968;</label>
+                    <label>   &#61758;</label>
                     <visible>Window.IsActive(musicplaylist)</visible>
                 </control>
             </control>
@@ -899,7 +898,7 @@
 
                 <control type="label">
                     <include>Def_Label_Header_Sub_Icon_Definition</include>
-                    <label>   &#61968;</label>
+                    <label>   &#61758;</label>
                 </control>
             </control>
 
@@ -1236,114 +1235,501 @@
 
             <control type="label">
                 <include>Widgets_Item_Sub_Title_Definition</include>
-                <label>$INFO[Container($PARAM[id]).ListItem.UserRating,  •  ,.0]</label>
+                <label>$INFO[Container($PARAM[id]).ListItem.UserRating,  ,.0]</label>
                 <visible>Integer.IsGreater(Container($PARAM[id]).ListItem.UserRating,0) + Skin.HasSetting(userrating.override.kodi.rating.num)</visible>
             </control>
             <control type="label">
                 <include>Widgets_Item_Sub_Title_Definition</include>
-                <label>$INFO[Container($PARAM[id]).ListItem.Rating(imdb),  •  $LOCALIZE[31149] ]</label>
+                <label>$INFO[Container($PARAM[id]).ListItem.Rating(imdb),  $LOCALIZE[31149] ]</label>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.UserRating,0) | !Skin.HasSetting(userrating.override.kodi.rating.num)</visible>
                 <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating(imdb))</visible>
             </control>
             <control type="label">
                 <include>Widgets_Item_Sub_Title_Definition</include>
-                <label>$INFO[Container($PARAM[id]).ListItem.Rating(themoviedb),  •  $LOCALIZE[31173] ]</label>
+                <label>$INFO[Container($PARAM[id]).ListItem.Rating(themoviedb),  $LOCALIZE[31173] ]</label>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.UserRating,0) | !Skin.HasSetting(userrating.override.kodi.rating.num)</visible>
                 <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating(themoviedb))</visible>
             </control>
             <control type="label">
                 <include>Widgets_Item_Sub_Title_Definition</include>
-                <label>$INFO[Container($PARAM[id]).ListItem.Rating(trakt),  •  $LOCALIZE[31096] ]</label>
+                <label>$INFO[Container($PARAM[id]).ListItem.Rating(trakt),  $LOCALIZE[31096] ]</label>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.UserRating,0) | !Skin.HasSetting(userrating.override.kodi.rating.num)</visible>
                 <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating(trakt))</visible>
             </control>
             <control type="label">
                 <include>Widgets_Item_Sub_Title_Definition</include>
-                <label>$INFO[Container($PARAM[id]).ListItem.Rating,  •  $LOCALIZE[31173] ]</label>
+                <label>$INFO[Container($PARAM[id]).ListItem.Rating,  $LOCALIZE[31173] ]</label>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.UserRating,0) | !Skin.HasSetting(userrating.override.kodi.rating.num)</visible>
                 <visible>String.IsEmpty(Container($PARAM[id]).ListItem.Rating(imdb)) + String.IsEmpty(Container($PARAM[id]).ListItem.Rating(themoviedb)) + String.IsEmpty(Container($PARAM[id]).ListItem.Rating(trakt)) + String.IsEmpty(TMDbHelper.Container($PARAM[id]).ListItem.IMDb_Rating)</visible>
             </control>
         </control>
     </include>
 
+    <include name="Def_Home_Label_Widget_Sub_Title_ReleaseDate">
+        <control type="label" description="Release date from TMDbHelper prop">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Premiered)]</label>
+            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered))</visible>
+        </control>
+        <control type="label" description="Release date from ListItem">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.Premiered]</label>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Premiered)</visible>
+        </control>
+    </include>
+
     <include name="Def_Home_Label_Widget_Sub_Title_Duration">
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Duration(mins)) + !Skin.HasSetting(show.time.format.hh.mm)</visible>
-            <label>$INFO[Container($PARAM[id]).ListItem.Duration(mins),  •  , $LOCALIZE[31074]]</label>
+            <left>20</left>
+            <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Duration(mins)) + !String.IsEqual(Container($PARAM[id]).ListItem.Duration(mins),0) + !Skin.HasSetting(show.time.format.hh.mm)</visible>
+            <label>$INFO[Container($PARAM[id]).ListItem.Duration(mins),, $LOCALIZE[31074]]</label>
         </control>
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Duration(mins)) + Skin.HasSetting(show.time.format.hh.mm) + Integer.IsGreater(Container($PARAM[id]).ListItem.Duration(h),0)</visible>
-            <label>$INFO[Container($PARAM[id]).ListItem.Duration(h),  •  ,$LOCALIZE[31061]] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,$LOCALIZE[31062]]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Duration(h),,$LOCALIZE[31061]] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,$LOCALIZE[31062]]</label>
         </control>
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Duration(mins)) + Skin.HasSetting(show.time.format.hh.mm) + !Integer.IsGreater(Container($PARAM[id]).ListItem.Duration(h),0)</visible>
-            <label>$INFO[Container($PARAM[id]).ListItem.Duration(m),  •  ,$LOCALIZE[31062]]</label>
+            <left>20</left>
+            <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Duration(mins)) + !String.IsEqual(Container($PARAM[id]).ListItem.Duration(m),0) + Skin.HasSetting(show.time.format.hh.mm) + !Integer.IsGreater(Container($PARAM[id]).ListItem.Duration(h),0)</visible>
+            <label>$INFO[Container($PARAM[id]).ListItem.Duration(m),,$LOCALIZE[31062]]</label>
         </control>
     </include>
 
     <include name="Def_Home_Label_Widget_Sub_Title_Duration_JLOM">
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration),0) + !Skin.HasSetting(show.time.format.hh.mm)</visible>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration),  •  ,$LOCALIZE[31062]]</label>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration),,$LOCALIZE[31062]]</label>
         </control>
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.H)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.H),0) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.M)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.M),0) + Integer.IsGreater(Window(Home).Property(TMDbHelper.ListItem.Duration.M),9) + Skin.HasSetting(show.time.format.hh.mm)</visible>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.H),  •  ,$LOCALIZE[31061]] $INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),,$LOCALIZE[31062]]</label>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.H),,$LOCALIZE[31061]] $INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),,$LOCALIZE[31062]]</label>
         </control>
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.H)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.H),0) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.M)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.M),0) + !Integer.IsGreater(Window(Home).Property(TMDbHelper.ListItem.Duration.M),9) + Skin.HasSetting(show.time.format.hh.mm)</visible>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.H),  •  ,$LOCALIZE[31061]] $INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),0,$LOCALIZE[31062]]</label>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.H),,$LOCALIZE[31061]] $INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),0,$LOCALIZE[31062]]</label>
         </control>
 
         <!-- <control type="label" description="Duration"> -->
-            <!-- <include>Widgets_Item_Sub_Title_Definition</include> -->
+            <!-- <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left> -->
             <!-- <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.H)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.H),0) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.M)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.M),0) + Skin.HasSetting(show.time.format.hh.mm)</visible> -->
             <!-- <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),,$LOCALIZE[31062]]</label> -->
         <!-- </control> -->
 
         <control type="label" description="Duration">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.H)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration.M)) + !Integer.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Duration.M),0) + Skin.HasSetting(show.time.format.hh.mm)</visible>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),  •  ,$LOCALIZE[31062]]</label>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration.M),,$LOCALIZE[31062]]</label>
+        </control>
+    </include>
+
+
+    <include name="Def_Home_Genre_Icons_Large">
+        <definition>
+            <control type="grouplist" description="Genre icons above widgets">
+                <usecontrolcoords>true</usecontrolcoords>
+                <right>55</right>
+                <bottom>20</bottom>
+                <width>800</width>
+                <height>75</height>
+                <orientation>horizontal</orientation>
+                <itemgap>2</itemgap>
+                <align>right</align>
+            <control type="image" description="Genre icon large Action">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Action.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Action) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),حركة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),أكشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),اكشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Action) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),حركة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),أكشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),اكشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Action) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),حركة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),أكشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),اكشن)</visible>
+            </control>
+            <control type="image" description="Genre icon large Adventure">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Adventure.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Adventure) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),مغامر) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Adventure) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),مغامر) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Adventure) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),مغامر)</visible>
+            </control>
+            <control type="image" description="Genre icon large Animation">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Animation.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Animation) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),رسوم) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),نيميشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Animation) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),رسوم) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),نيميشن) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Animation) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),رسوم) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),نيميشن)</visible>
+            </control>
+            <control type="image" description="Genre icon large Comedy">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Comedy.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Comedy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),كوميدي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Comedy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),كوميدي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Comedy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),كوميدي)</visible>
+            </control>
+            <control type="image" description="Genre icon large Crime">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Crime.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Crime) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),جريمة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),جرائم) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Crime) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),جريمة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),جرائم) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Crime) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),جريمة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),جرائم)</visible>
+            </control>
+            <control type="image" description="Genre icon large Documentary">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Documentary.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Documentary) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),وثائقي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Documentary) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),وثائقي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Documentary) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),وثائقي)</visible>
+            </control>
+            <control type="image" description="Genre icon large Drama">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Drama.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Drama) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),دراما) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Drama) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),دراما) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Drama) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),دراما)</visible>
+            </control>
+            <control type="image" description="Genre icon large Family">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Family.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Family) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),عائل) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),أطفال) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),اطفال) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Family) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),عائل) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),أطفال) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),اطفال) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Family) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),عائل) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),أطفال) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),اطفال)</visible>
+            </control>
+            <control type="image" description="Genre icon large Fantasy">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Fantasy.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Fantasy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),فانتازيا) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Fantasy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),فانتازيا) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Fantasy) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),فانتازيا)</visible>
+            </control>
+            <control type="image" description="Genre icon large History">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/History.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),History) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),تاريخ) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),History) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),تاريخ) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),History) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),تاريخ)</visible>
+            </control>
+            <control type="image" description="Genre icon large Horror">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Horror.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Horror) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),رعب) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Horror) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),رعب) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Horror) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),رعب)</visible>
+            </control>
+            <control type="image" description="Genre icon large Music">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Music.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Music) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),موسيق) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Music) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),موسيق) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Music) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),موسيق)</visible>
+            </control>
+            <control type="image" description="Genre icon large Mystery">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Mystery.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Mystery) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),غموض) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),لغز) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Mystery) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),غموض) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),لغز) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Mystery) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),غموض) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),لغز)</visible>
+            </control>
+            <control type="image" description="Genre icon large Romance">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Romance.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Romance) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),رومانس) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Romance) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),رومانس) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Romance) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),رومانس)</visible>
+            </control>
+            <control type="image" description="Genre icon large Science-Fiction">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Science-Fiction.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Science Fiction) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Sci-Fi) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),خيال علمي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),الخيال العلمي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Science Fiction) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Sci-Fi) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),خيال علمي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),الخيال العلمي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Science Fiction) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Sci-Fi) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),خيال علمي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),الخيال العلمي)</visible>
+            </control>
+            <control type="image" description="Genre icon large Thriller">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Thriller.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Thriller) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),إثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),اثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),تشويق) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Thriller) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),إثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),اثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),تشويق) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Thriller) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),إثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),اثارة) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),تشويق)</visible>
+            </control>
+            <control type="image" description="Genre icon large War">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/War.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),War) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),حرب) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),War) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),حرب) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),War) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),حرب)</visible>
+            </control>
+            <control type="image" description="Genre icon large Western">
+                <width>75</width>
+                <height>75</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <colordiffuse>Dark2</colordiffuse>
+                <visible>!Skin.HasSetting(hide.home.genre.icons)</visible>
+                <texture>genreicons/Western.png</texture>
+                <visible>String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),Western) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre),غربي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Western) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),غربي) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Western) | String.Contains(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),غربي)</visible>
+            </control>
+            <control type="image" description="Studio logo after genre icons">
+                <top>12</top>
+                <width min="0" max="119">auto</width>
+                <height>60</height>
+                <aspectratio align="left" aligny="center">keep</aspectratio>
+                <visible>!Skin.HasSetting(hide.home.studio.logo)</visible>
+                <texture>$VAR[Image_Dialog_Info_Video_Studio]</texture>
+                <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.base_studio)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+                <visible>String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.label),ListItem.Label) | String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.base_label),ListItem.Label)</visible>
+            </control>
+            </control>
+        </definition>
+    </include>
+
+    <!-- English->Arabic genre name mapping for the home sub-title row -->
+    <variable name="Home_SubTitle_Genre1_AR">
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Action &amp; Adventure)">حركة ومغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Sci-Fi &amp; Fantasy)">خيال علمي وفانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),War &amp; Politics)">حرب وسياسة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Science Fiction)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Sci-Fi)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),TV Movie)">فيلم تلفزيوني</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Action)">حركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Adventure)">مغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Animation)">رسوم متحركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Comedy)">كوميديا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Crime)">جريمة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Documentary)">وثائقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Drama)">دراما</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Family)">عائلي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Fantasy)">فانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),History)">تاريخ</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Horror)">رعب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Music)">موسيقى</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Musical)">موسيقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Mystery)">غموض</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Romance)">رومانسية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Thriller)">إثارة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),War)">حرب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Western)">غربي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Kids)">أطفال</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),News)">أخبار</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Reality)">واقعي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Soap)">دراما يومية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Talk)">حواري</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Biography)">سيرة ذاتية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),Sport)">رياضة</value>
+        <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)]</value>
+    </variable>
+    <variable name="Home_SubTitle_Genre2_AR">
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Action &amp; Adventure)">حركة ومغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Sci-Fi &amp; Fantasy)">خيال علمي وفانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),War &amp; Politics)">حرب وسياسة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Science Fiction)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Sci-Fi)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),TV Movie)">فيلم تلفزيوني</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Action)">حركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Adventure)">مغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Animation)">رسوم متحركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Comedy)">كوميديا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Crime)">جريمة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Documentary)">وثائقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Drama)">دراما</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Family)">عائلي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Fantasy)">فانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),History)">تاريخ</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Horror)">رعب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Music)">موسيقى</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Musical)">موسيقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Mystery)">غموض</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Romance)">رومانسية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Thriller)">إثارة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),War)">حرب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Western)">غربي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Kids)">أطفال</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),News)">أخبار</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Reality)">واقعي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Soap)">دراما يومية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Talk)">حواري</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Biography)">سيرة ذاتية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name),Sport)">رياضة</value>
+        <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name)]</value>
+    </variable>
+    <variable name="Home_SubTitle_GenreCombined_AR">
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Action &amp; Adventure)">حركة ومغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Sci-Fi &amp; Fantasy)">خيال علمي وفانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),War &amp; Politics)">حرب وسياسة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Science Fiction)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Sci-Fi)">خيال علمي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),TV Movie)">فيلم تلفزيوني</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Action)">حركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Adventure)">مغامرة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Animation)">رسوم متحركة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Comedy)">كوميديا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Crime)">جريمة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Documentary)">وثائقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Drama)">دراما</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Family)">عائلي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Fantasy)">فانتازيا</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),History)">تاريخ</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Horror)">رعب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Music)">موسيقى</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Musical)">موسيقي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Mystery)">غموض</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Romance)">رومانسية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Thriller)">إثارة</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),War)">حرب</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Western)">غربي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Kids)">أطفال</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),News)">أخبار</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Reality)">واقعي</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Soap)">دراما يومية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Talk)">حواري</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Biography)">سيرة ذاتية</value>
+        <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.Genre),Sport)">رياضة</value>
+        <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre)]</value>
+    </variable>
+
+    <include name="Def_Home_Label_Widget_Sub_Title_Genre_First">
+        <control type="label">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <label>$VAR[Home_SubTitle_Genre1_AR,(,]$VAR[Home_SubTitle_Genre2_AR, / ,])</label>
+            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name))</visible>
+        </control>
+        <control type="label">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <label>$VAR[Home_SubTitle_GenreCombined_AR,(,)]</label>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+        </control>
+        <control type="label">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <label>$INFO[Container($PARAM[id]).ListItem.Genre,(,)]</label>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)</visible>
         </control>
     </include>
 
     <include name="Def_Home_Label_Widget_Sub_Title_Genre">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name),  •  ,]$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name), / ,]</label>
+            <left>20</left>
+            <label>$VAR[Home_SubTitle_Genre1_AR,(,]$VAR[Home_SubTitle_Genre2_AR, / ,])</label>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name))</visible>
         </control>
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Genre,  •  ,]</label>
-            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)</visible>
+            <left>20</left>
+            <label>$VAR[Home_SubTitle_GenreCombined_AR,(,)]</label>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+        </control>
+        <control type="label">
+            <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.Genre,(,)]</label>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)</visible>
         </control>
     </include>
 
     <include name="Def_Home_Label_Widget_Sub_Title_Year">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Year]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Year,,]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Year)</visible>
+        </control>
+    </include>
+
+    <include name="Def_Home_Label_Widget_Sub_Title_Mpaa">
+        <control type="image" description="MPAA badge from TMDbHelper prop">
+            <left>16</left>
+            <top>0</top>
+            <width min="0" max="76">auto</width>
+            <height>46</height>
+            <aspectratio align="center" aligny="center">keep</aspectratio>
+            <texture>flags/mpaa/color/$VAR[flag_mpaa_homeprop]</texture>
+            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Mpaa))</visible>
+        </control>
+        <control type="image" description="MPAA badge from ListItem">
+            <left>16</left>
+            <top>0</top>
+            <width min="0" max="76">auto</width>
+            <height>46</height>
+            <aspectratio align="center" aligny="center">keep</aspectratio>
+            <texture>flags/mpaa/color/$VAR[flag_mpaa]</texture>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Mpaa)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Mpaa)</visible>
+        </control>
+    </include>
+
+    <include name="Def_Home_Label_Widget_Sub_Title_StudioLogo">
+        <control type="image">
+            <left>23</left>
+            <top>2</top>
+            <width min="0" max="250">auto</width>
+            <height>40</height>
+            <aspectratio align="left" aligny="center">keep</aspectratio>
+            <texture>$VAR[Image_Dialog_Info_Video_Studio]</texture>
+            <visible>Skin.HasSetting(home.style.flix) | Skin.HasSetting(home.style.horizontal.clean)</visible>
+            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.base_studio)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+        </control>
+        <control type="image">
+            <left>23</left>
+            <top>2</top>
+            <width min="0" max="250">auto</width>
+            <height>40</height>
+            <aspectratio align="left" aligny="center">keep</aspectratio>
+            <texture>$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+            <visible>Skin.HasSetting(home.style.flix) | Skin.HasSetting(home.style.horizontal.clean)</visible>
+            <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.base_studio)) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container($PARAM[id]).ListItem.Studio)</visible>
         </control>
     </include>
 
     <include name="Def_Home_Label_Widget_Sub_Title_DateAdded">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.DateAdded,  •  ,]</label>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.DateAdded,,]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.DateAdded)</visible>
             <visible>!String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,plugin://plugin.audio.apple.podcasts)</visible>
         </control>
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <label>$INFO[Container($PARAM[id]).ListItem.DateAdded]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.DateAdded)</visible>
             <visible>String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,plugin://plugin.audio.apple.podcasts)</visible>
@@ -1353,7 +1739,8 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Num_Episode">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Episode,  •  , $LOCALIZE[20360]]</label>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.Episode,, $LOCALIZE[20360]]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Episode)</visible>
         </control>
     </include>
@@ -1361,7 +1748,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_TvShowTitle">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.TvShowTitle,,  •  ]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.TvShowTitle,,  ]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle) + !Skin.HasSetting(home.style.flix) + !Skin.HasSetting(home.style.horizontal.clean)</visible>
         </control>
     </include>
@@ -1369,7 +1756,8 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Season_X">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Season,$LOCALIZE[20373] ,  •  ]</label>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.Season,$LOCALIZE[20373] ,]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Season)</visible>
         </control>
     </include>
@@ -1377,7 +1765,8 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Episode_X">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Episode,$LOCALIZE[20359] ,  •  ]</label>
+            <left>20</left>
+            <label>$INFO[Container($PARAM[id]).ListItem.Episode,$LOCALIZE[20359] ,]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Episode)</visible>
         </control>
     </include>
@@ -1385,11 +1774,13 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Premiered">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <label>$INFO[Container($PARAM[id]).ListItem.Premiered]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered)</visible>
         </control>
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
+            <left>20</left>
             <label>$INFO[Container($PARAM[id]).ListItem.Year]</label>
             <visible>String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !String.IsEmpty(Container($PARAM[id]).ListItem.Year)</visible>
         </control>
@@ -1406,7 +1797,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_AddonVersion">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.AddonType]$INFO[Container($PARAM[id]).ListItem.AddonVersion,  •  v ]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.AddonType]$INFO[Container($PARAM[id]).ListItem.AddonVersion,  v ]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.AddonVersion)</visible>
         </control>
     </include>
@@ -1423,7 +1814,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Gender">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label fallback="19055">$INFO[Window(Home).Property(TMDbHelper.ListItem.Gender),,  •  ]</label>
+            <label fallback="19055">$INFO[Window(Home).Property(TMDbHelper.ListItem.Gender),,  ]</label>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Gender))</visible>
         </control>
     </include>
@@ -1431,7 +1822,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Age">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label fallback="19055">$INFO[Window(Home).Property(TMDbHelper.ListItem.Age),, $LOCALIZE[31530]  •  ]</label>
+            <label fallback="19055">$INFO[Window(Home).Property(TMDbHelper.ListItem.Age),, $LOCALIZE[31530]  ]</label>
             <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Age))</visible>
         </control>
     </include>
@@ -1447,12 +1838,12 @@
     <include name="Def_Home_Label_Widget_Sub_Title_TotalAlbum">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Control.GetLabel(9968)]</label>
+            <label>$INFO[Control.GetLabel(9758)]</label>
             <visible>Integer.IsGreater(Container(44024).NumItems,1)</visible>
         </control>
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Control.GetLabel(9969)]</label>
+            <label>$INFO[Control.GetLabel(9759)]</label>
             <visible>Integer.IsEqual(Container(44024).NumItems,1)</visible>
         </control>
     </include>
@@ -1460,7 +1851,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_ArtistStyle">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>  •  </label>
+            <label>  </label>
             <visible>Integer.IsGreater(Container(44024).NumItems,0) + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Style)) | !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)]</visible>
         </control>
         <control type="label">
@@ -1486,7 +1877,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Song">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Album]$INFO[Container($PARAM[id]).ListItem.Year,  •  ,]$INFO[Container($PARAM[id]).ListItem.TrackNumber,  •  ,.  ]$INFO[Container($PARAM[id]).ListItem.Title]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Album]$INFO[Container($PARAM[id]).ListItem.Year,  ,]$INFO[Container($PARAM[id]).ListItem.TrackNumber,  ,.  ]$INFO[Container($PARAM[id]).ListItem.Title]</label>
             <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,song)</visible>
         </control>
     </include>
@@ -1494,7 +1885,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Sets">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Years),,  •  ]$INFO[Container(44021).NumItems]$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.NumItems),/,] $LOCALIZE[31014]</label>
+            <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Years),,  ]$INFO[Container(44021).NumItems]$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.NumItems),/,] $LOCALIZE[31014]</label>
             <visible>Integer.IsGreater(Container(44021).NumItems,0)</visible>
             <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,set)</visible>
         </control>
@@ -1517,7 +1908,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_TotalDisc">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label> $INFO[Control.GetLabel(9967)]</label>
+            <label> $INFO[Control.GetLabel(9757)]</label>
             <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Label)</visible>
             <visible>ControlGroup(301).HasFocus()</visible>
             <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.Property(Album_Totaldiscs),1)</visible>
@@ -1536,14 +1927,14 @@
     <include name="Def_Home_Label_Widget_Sub_Title_AlbumYear">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Year,  •  ]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Year,  ]</label>
         </control>
     </include>
 
     <include name="Def_Home_Label_Widget_Sub_Title_EPG">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Label]$INFO[Container($PARAM[id]).ListItem.Genre,  •  ,]$INFO[Container($PARAM[id]).ListItem.StartTime,  •  ,]$INFO[Container($PARAM[id]).ListItem.EndTime, - ]$INFO[Container($PARAM[id]).ListItem.Duration(mins),  •  , $LOCALIZE[31074]]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Label]$INFO[Container($PARAM[id]).ListItem.Genre,  ,]$INFO[Container($PARAM[id]).ListItem.StartTime,  ,]$INFO[Container($PARAM[id]).ListItem.EndTime, - ]$INFO[Container($PARAM[id]).ListItem.Duration(mins),  , $LOCALIZE[31074]]</label>
             <visible>![String.IsEmpty(ListItem.StartTime) | String.IsEmpty(ListItem.EndTime)]</visible>
             <visible>!String.IsEqual(Container($PARAM[id]).ListItem.Path,pvr://channels/tv/)</visible>
         </control>
@@ -1552,7 +1943,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_PVR">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.PVRClientName]$INFO[Container($PARAM[id]).ListItem.PVRInstanceName,  •  ,]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.PVRClientName]$INFO[Container($PARAM[id]).ListItem.PVRInstanceName,  ,]</label>
             <visible>[String.IsEmpty(ListItem.StartTime) | String.IsEmpty(ListItem.EndTime)]</visible>
             <visible>!String.IsEqual(Container($PARAM[id]).ListItem.Path,pvr://channels/tv/)</visible>
         </control>
@@ -1583,7 +1974,7 @@
     <include name="Def_Home_Label_Widget_Sub_Title_Plugin_ApplePodcats">
         <control type="label">
             <include>Widgets_Item_Sub_Title_Definition</include>
-            <label>$INFO[Container($PARAM[id]).ListItem.Property(podcast_title),  •  ,]</label>
+            <label>$INFO[Container($PARAM[id]).ListItem.Property(podcast_title),  ,]</label>
             <visible>String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,plugin://plugin.audio.apple.podcasts)</visible>
         </control>
     </include>
@@ -2081,20 +2472,20 @@
     <include name="Def_Image_Poster_Rating_Info_Left">
         <align>left</align>
         <aligny>center</aligny>
-        <width>40</width>
+        <width>32</width>
         <left>10</left>
         <bottom>24</bottom>
-        <height>40</height>
+        <height>32</height>
     </include>
 
     <include name="Def_Label_Poster_Rating_Left">
-        <align>left</align>
+        <align>center</align>
         <aligny>center</aligny>
-        <width>80</width>
-        <left>14</left>
-        <bottom>26</bottom>
-        <height>40</height>
-        <font>Rating</font>
+        <width>36</width>
+        <left>8</left>
+        <bottom>24</bottom>
+        <height>32</height>
+        <font>Mini</font>
         <textcolor>black</textcolor>
         <selectedcolor>black</selectedcolor>
     </include>
@@ -2204,7 +2595,6 @@
     <!-- ================================  -->
     <!--     DIALOGUE - FLAG VIDEO         -->
     <!-- ================================= -->
-
     <include name="Def_Onclick_Flag_Video_Reset">
 
         <!-- VIDEO -->
@@ -2445,7 +2835,6 @@
 		<value condition="Skin.HasSetting(show.osd.video.colored.icons)">none</value>
 		<value>$VAR[Color_OSD_Panel_White70]</value>
 	</variable>
-
     <!-- ===========================  -->
     <!--   SKIN / SERVICE - SETTINGS  -->
     <!-- ============================ -->
@@ -2960,6 +3349,7 @@
 
         <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settinghomestyle,5)</onload>
         <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settingthemecolor,1)</onload>
+        <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settingskinfont,1)</onload>
         <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settingperflevel,2)</onload>
         <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settingskinfont,1)</onload>
         <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(settingpresetcolor,3)</onload>

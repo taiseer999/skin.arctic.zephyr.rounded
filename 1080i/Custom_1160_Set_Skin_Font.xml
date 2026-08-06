@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1154">
+<window type="dialog" id="1160">
     <defaultcontrol always="true">11</defaultcontrol>
 
     <onload>ClearProperty(reloadsetupwizard,Home)</onload>
     <onload>ClearProperty(SetupWizardDirection,Home)</onload>
 
-    <onunload condition="!String.IsEmpty(Window(Home).Property(reloadskin))">SetFocus(3033)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(reloadsetupwizard))">SetFocus(3099)</onunload>
-    <onunload condition="String.IsEmpty(Window(Home).Property(reloadsetupwizard)) + String.IsEmpty(Window(Home).Property(SetupWizardDirection)) + Window.IsVisible(Custom_1100_Startup.xml) + !Window.IsVisible(1153) + !Window.IsVisible(1154) + !Window.IsVisible(1155) + !Window.IsVisible(1159) + !Window.IsVisible(1156)">AlarmClock(DelayFocus3615,SetFocus(3615),00:00,silent)</onunload>
+    <onunload condition="String.IsEmpty(Window(Home).Property(reloadsetupwizard)) + String.IsEmpty(Window(Home).Property(SetupWizardDirection)) + Window.IsVisible(Custom_1100_Startup.xml) + !Window.IsVisible(1153) + !Window.IsVisible(1154) + !Window.IsVisible(1155) + !Window.IsVisible(1156) + !Window.IsVisible(1160)">AlarmClock(DelayFocus3615,SetFocus(3615),00:00,silent)</onunload>
 
     <controls>
         <include>Background_Overlay</include>
 
         <control type="group">
-            <include content="Def_Dialog_Setting_Background">
+            <include content="Def_Dialog_Background">
                 <param name="height" value="882" />
                 <param name="width" value="1722" />
             </include>
 
             <include content="Def_Dialog_Header">
-                <param name="label" value="$LOCALIZE[166] - $LOCALIZE[5] / $LOCALIZE[31364]" />
+                <param name="label" value="$LOCALIZE[288]" />
                 <param name="icon" value="skinsettings" />
             </include>
 
@@ -34,11 +33,8 @@
                 <onup>11</onup>
                 <ondown>11</ondown>
 
-                <onleft condition="!$EXP[Condition_Show_Button_Setup_Wizard]">close</onleft>
-                <onleft condition="$EXP[Condition_Show_Button_Setup_Wizard]">9010</onleft>
-
-                <onright condition="!$EXP[Condition_Show_Button_Setup_Wizard]">11</onright>
-                <onright condition="$EXP[Condition_Show_Button_Setup_Wizard]">9020</onright>
+                <onleft>close</onleft>
+                <onright>11</onright>
 
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>0</itemgap>
@@ -91,60 +87,45 @@
                     </include>
                 </focusedlayout>
 
-                <!-- PERFORMANCE -->
-
                 <content>
+
+                    <!-- DEFAULT (monadit) -->
+
                     <item id="1">
-                        <label>$LOCALIZE[31610]</label>
-
-                        <include>Def_Disable_All_TMDb_Helper_Services</include>
-                        <include>Def_Performance_Value</include>
-                        <include>Def_Settings_Clearlogo_Disable_All</include>
-
-                        <onclick>Skin.SetString(settingperflevel,1)</onclick>
-                        <onclick condition="!$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadskin,1,Home)</onclick>
-
-                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1154,Home)</onclick>
+                        <label>Default ($LOCALIZE[571])</label>
+                        <onclick condition="!System.HasAddon(script.skin.info.service)">InstallAddon(script.skin.info.service)</onclick>
+                        <onclick>Skin.SetString(settingskinfont,1)</onclick>
+                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1160,Home)</onclick>
                         <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(SetupWizardDirection,Next,Home)</onclick>
-                        <onclick>AlarmClock(closewindow,Dialog.Close(all,false),00:00,silent)</onclick>
-                        <include condition="String.IsEqual(Skin.String(settingperflevel),1)">Def_Item_Selected</include>
+                        <include condition="String.IsEqual(Skin.String(settingskinfont),1)">Def_Item_Selected</include>
+                        <onclick>AlarmClock(DelaySkinFont1,RunScript(script.skin.info.service,action=set_setting,setting=lookandfeel.font,value=Default,noconfirm=true),00:01,silent)</onclick>
+                        <onclick>Close</onclick>
                     </item>
 
-                    <!-- BALANCED - DEFAULT -->
+                    <!-- ايفون -->
 
                     <item id="2">
-                        <label>$LOCALIZE[31611] ($LOCALIZE[571])</label>
-
-                        <include>Def_Enable_All_TMDb_Helper_Services</include>
-                        <include>Def_Settings_Clearlogo_Disable_All</include>
-                        <include>Def_Settings_All_Default_Value</include>
-
-                        <onclick>Skin.SetString(settingperflevel,2)</onclick>
-                        <onclick condition="!$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadskin,1,Home)</onclick>
-
-                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1154,Home)</onclick>
+                        <label>ايفون</label>
+                        <onclick condition="!System.HasAddon(script.skin.info.service)">InstallAddon(script.skin.info.service)</onclick>
+                        <onclick>Skin.SetString(settingskinfont,2)</onclick>
+                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1160,Home)</onclick>
                         <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(SetupWizardDirection,Next,Home)</onclick>
-                        <onclick>AlarmClock(closewindow,Dialog.Close(all,false),00:00,silent)</onclick>
-                        <include condition="String.IsEqual(Skin.String(settingperflevel),2)">Def_Item_Selected</include>
+                        <include condition="String.IsEqual(Skin.String(settingskinfont),2)">Def_Item_Selected</include>
+                        <onclick>AlarmClock(DelaySkinFont1,RunScript(script.skin.info.service,action=set_setting,setting=lookandfeel.font,value=ايفون,noconfirm=true),00:01,silent)</onclick>
+                        <onclick>Close</onclick>
                     </item>
 
-                    <!-- QUALITY -->
+                    <!-- تونس -->
 
                     <item id="3">
-                        <label>$LOCALIZE[31612]</label>
-
-                        <include>Def_Enable_All_TMDb_Helper_Services</include>
-                        <include>Def_Settings_All_Default_Value</include>
-                        <include>Def_Settings_Clearlogo_Enable_All</include>
-                        <include>Def_Settings_Quality_Value</include>
-
-                        <onclick>Skin.SetString(settingperflevel,3)</onclick>
-                        <onclick condition="!$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadskin,1,Home)</onclick>
-
-                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1154,Home)</onclick>
+                        <label>تونس</label>
+                        <onclick condition="!System.HasAddon(script.skin.info.service)">InstallAddon(script.skin.info.service)</onclick>
+                        <onclick>Skin.SetString(settingskinfont,3)</onclick>
+                        <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(reloadsetupwizard,1160,Home)</onclick>
                         <onclick condition="$EXP[Condition_Show_Button_Setup_Wizard]">SetProperty(SetupWizardDirection,Next,Home)</onclick>
-                        <onclick>AlarmClock(closewindow,Dialog.Close(all,false),00:00,silent)</onclick>
-                        <include condition="String.IsEqual(Skin.String(settingperflevel),3)">Def_Item_Selected</include>
+                        <include condition="String.IsEqual(Skin.String(settingskinfont),3)">Def_Item_Selected</include>
+                        <onclick>AlarmClock(DelaySkinFont1,RunScript(script.skin.info.service,action=set_setting,setting=lookandfeel.font,value=تونس,noconfirm=true),00:01,silent)</onclick>
+                        <onclick>Close</onclick>
                     </item>
                 </content>
             </control>
@@ -152,21 +133,6 @@
             <!-- LINE VERTICAL -->
 
             <include content="Def_Dialog_Line_Vertical"><param name="right" value="1272" /></include>
-
-            <!-- VIEW TYPE ON RIGHT -->
-
-            <include content="Def_Dialog_View_Type">
-                <param name="texture" value="special://skin/extras/performance/$VAR[Def_Image_Settings_Performance].jpg" />
-            </include>
-
-            <!-- TIPS - FOOTER -->
-
-            <include content="Object_Footer_Tips">
-                <param name="left" value="478" />
-                <param name="label" value="$LOCALIZE[31599]" />
-                <param name="textcolor" value="Black70" />
-                <param name="visible" value="Container(11).HasFocus(1) + !Control.HasFocus(9010) + !Control.HasFocus(9020)" />
-            </include>
 
             <!-- BUTTON OK / PREV / NEXT -->
 
