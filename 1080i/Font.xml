@@ -2,6 +2,11 @@
 <fonts>
     <fontset id="Default" unicode="false">
         <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
+        <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
             <size>26</size>
@@ -483,6 +488,11 @@
     </fontset>
 
     <fontset id="Fallback" unicode="false">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -968,6 +978,11 @@
     </fontset>
 
     <fontset id="Fallback bold" unicode="false">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -1461,6 +1476,11 @@
 
     <fontset id="Arial" unicode="true">
         <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
+        <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
             <size>26</size>
@@ -1946,6 +1966,11 @@
     </fontset>
 
     <fontset id="Arial 2" unicode="true">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -2482,6 +2507,11 @@
 
     <fontset id="AZ Reloaded" unicode="false">
         <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
+        <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
             <size>26</size>
@@ -2964,6 +2994,11 @@
     </fontset>
 
     <fontset id="AZ Standard" unicode="false">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -3450,6 +3485,11 @@
 
     <fontset id="AZ Standard bold" unicode="false">
         <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
+        <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
             <size>26</size>
@@ -3920,6 +3960,11 @@
     </fontset>
 
     <fontset id="Segoe Light" unicode="false">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -4404,7 +4449,12 @@
         </font>
     </fontset>
 
-    <fontset id="NotoSans Regular" unicode="true">
+    <fontset id="Inter Regular" unicode="true">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -4618,25 +4668,25 @@
         </font>
         <font>
             <name>Null</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>0</size>
         </font>
         <font>
             <name>LargeBold</name>
             <style>uppercase</style>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>52</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Lyrics</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Large</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
@@ -4648,37 +4698,37 @@
         </font>
         <font>
             <name>LargeNew</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LargeNetflix</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>62</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EpisodeNumber</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>100</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EpisodeNumberNew</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>100</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Medium</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Medium2x</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
             <style>bold</style>
@@ -4714,232 +4764,237 @@
         </font>
         <font>
             <name>MediumBold</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>MediumBold3</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HeaderLabel</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LabelInfo</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LabelInfoSub</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>29</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallBold</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>NotificationBold</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>34</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Tiny</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
             <linespacing>1.22</linespacing>
         </font>
         <font>
             <name>TinyPlot</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
             <linespacing>1.22</linespacing>
         </font>
         <font>
             <name>TinyInfo</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>ChannelInfo</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>27</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>ChannelTiny</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>TinyBold2</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
         <font>
             <name>Tiny44</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>21</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>TinyBold</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <style>bold</style>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Mini</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>24</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Button</name>
             <style>uppercase</style>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>28</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Flag</name>
             <style>uppercase</style>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EPGTimeline</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>20</size>
             <aspect>0.9</aspect>
             <style>uppercase</style>
         </font>
         <font>
             <name>Home</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HomeFO</name>
             <style>uppercase</style>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>40</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HomeIcon</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>WidgetSelector</name>
             <style>uppercase</style>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>font13</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Clock</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>130</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>WatchedStates</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>20</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small24</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
             <linespacing>1.22</linespacing>
         </font>
         <font>
             <name>Small20</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>19</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small333</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small33</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>28</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallNavi</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>29</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Name1</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>34</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Consensus</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>32</size>
         </font>
         <font>
             <name>WatchedLabel</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallPVR</name>
-            <filename>NotoSans-Regular.ttf</filename>
+            <filename>Inter-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
         </font>
     </fontset>
 
-    <fontset id="Inter Regular" unicode="true">
+    <fontset id="NotoSans Regular" unicode="true">
+        <font>
+            <name>Ratio</name>
+            <filename>MC360.ttf</filename>
+            <size>16</size>
+        </font>
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
@@ -5153,25 +5208,25 @@
         </font>
         <font>
             <name>Null</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>0</size>
         </font>
         <font>
             <name>LargeBold</name>
             <style>uppercase</style>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>52</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Lyrics</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Large</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
@@ -5183,37 +5238,37 @@
         </font>
         <font>
             <name>LargeNew</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>48</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LargeNetflix</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>62</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EpisodeNumber</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>100</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EpisodeNumberNew</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>100</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Medium</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Medium2x</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
             <style>bold</style>
@@ -5249,226 +5304,226 @@
         </font>
         <font>
             <name>MediumBold</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>MediumBold3</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HeaderLabel</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LabelInfo</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>LabelInfoSub</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>29</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallBold</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>38</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>NotificationBold</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>34</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Tiny</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
-            <linespacing>1.22</linespacing>
+            <linespacing>1.10</linespacing>
         </font>
         <font>
             <name>TinyPlot</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
-            <linespacing>1.22</linespacing>
+            <!-- <linespacing>1.22</linespacing> -->
         </font>
         <font>
             <name>TinyInfo</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>ChannelInfo</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>27</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>ChannelTiny</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>TinyBold2</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
         <font>
             <name>Tiny44</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>21</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>TinyBold</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <style>bold</style>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Mini</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>24</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Button</name>
             <style>uppercase</style>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>28</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Flag</name>
             <style>uppercase</style>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>EPGTimeline</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>20</size>
             <aspect>0.9</aspect>
             <style>uppercase</style>
         </font>
         <font>
             <name>Home</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HomeFO</name>
             <style>uppercase</style>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>40</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>HomeIcon</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>WidgetSelector</name>
             <style>uppercase</style>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>font13</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>30</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Clock</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>130</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>WatchedStates</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>20</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small24</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
             <linespacing>1.22</linespacing>
         </font>
         <font>
             <name>Small20</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>19</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small333</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>26</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Small33</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>28</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallNavi</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>29</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Name1</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>34</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>Consensus</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>32</size>
         </font>
         <font>
             <name>WatchedLabel</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>22</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>SmallPVR</name>
-            <filename>Inter-Regular.ttf</filename>
+            <filename>NotoSans-Regular.ttf</filename>
             <size>25</size>
             <aspect>0.9</aspect>
         </font>
