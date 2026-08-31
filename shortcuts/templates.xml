@@ -9,7 +9,7 @@
     </expressions>
 
     <!-- ============================================================ -->
-    <!--                    PRESETS                                     -->
+    <!--                    PRESETS                                   -->
     <!-- ============================================================ -->
 
     <presets>
@@ -37,7 +37,7 @@
     </presets>
 
     <!-- ============================================================ -->
-    <!--                    WIDGET ITEMS TEMPLATE                      -->
+    <!--                    WIDGET ITEMS TEMPLATE                     -->
     <!-- ============================================================ -->
     <!-- Iterates over each widget in a menu item's .1 submenu -->
 
@@ -281,7 +281,7 @@
     </template>
 
     <!-- ============================================================ -->
-    <!--                    MAIN WIDGETS TEMPLATE                      -->
+    <!--                    MAIN WIDGETS TEMPLATE                     -->
     <!-- ============================================================ -->
     <!-- Container for all widgets, iterates over main menu items -->
 
@@ -294,7 +294,8 @@
             <control type="grouplist" id="$MATH[mainMenuIndex * 1000 + 400]">
                 <include>Animation_Common_Global</include>
                 <include>Animation_NowPlaying_Widget_Fade</include>
-                <include>Animation_Scrolltime_Widgets_Container</include>
+
+                <include>Animation_Vertical_Scrolltime_Widgets_Container</include>
 
                 <itemgap>0</itemgap>
                 <orientation>vertical</orientation>
@@ -326,7 +327,7 @@
     </template>
 
     <!-- ============================================================ -->
-    <!--                    OTHER TEMPLATES                            -->
+    <!--                    OTHER TEMPLATES                           -->
     <!-- ============================================================ -->
 
     <!-- Weather Daily -->

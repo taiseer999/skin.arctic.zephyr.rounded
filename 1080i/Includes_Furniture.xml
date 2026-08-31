@@ -19,16 +19,22 @@
                 <right>$PARAM[right]</right>
 
                 <!-- BACKGROUND -->
-                <control type="label">
-                   <include>Def_Media_Status_Icon_Background</include>
-                   <label>$VAR[Label_Indicator_Status_Background_Icon]</label>
-                   <include>Animation_Fade_Background_Marker_Icon</include>
+                <control type="image">
+                    <include>Def_Background_Poster_Rating_Info_Top_Right</include>
+                    <texture background="true" colordiffuse="$VAR[Color_Background_Status_Poster]">$VAR[Image_Indicator_Icon_Background]</texture>
+                </control>
+
+                <!-- CIRCLE -->
+                <control type="image">
+                <visible></visible>
+                    <include>Def_Background_Poster_Rating_Info_Top_Right</include>
+                    <texture background="true" colordiffuse="$VAR[Color_Indicator_Status_Poster]">$VAR[Image_Indicator_Icon_Circle]</texture>
                 </control>
 
                 <!-- ICON -->
                 <control type="label">
                    <include>Def_Media_Status_Icon_Symbol</include>
-                   <label>$VAR[Label_Watched_Poster]</label>
+                   <label>$VAR[Label_Icon_Status_Poster]</label>
                 </control>
             </control>
         </definition>
@@ -50,7 +56,7 @@
                     <visible>ListItem.IsPlaying | $EXP[IsAlbumIsPlaying]</visible>
                     <visible>!Skin.HasSetting(hide.markers.isplaying)</visible>
                     <include>Def_Media_Status_Banner_Background</include>
-                    <texture colordiffuse="$VAR[Color_Indicator_Background_Is_Playing]" background="true">misc/banner_status_overlay.png</texture>
+                    <texture colordiffuse="$VAR[Color_Indicator_Background_Is_Playing]" background="true">dialog/misc/banner_status_overlay.png</texture>
                 </control>
 
                 <!-- FLAG IN PROGRESS  -->
@@ -58,7 +64,7 @@
                 <control type="image">
                     <visible>[ListItem.IsResumable | $EXP[IsTVShowInProgress]] + !ListItem.IsPlaying + !Skin.HasSetting(hide.markers.inprogress)</visible>
                     <include>Def_Media_Status_Banner_Background</include>
-                    <texture colordiffuse="$VAR[Color_Indicator_Background_In_Progress]" background="true">misc/banner_status_overlay.png</texture>
+                    <texture colordiffuse="$VAR[Color_Indicator_Background_In_Progress]" background="true">dialog/misc/banner_status_overlay.png</texture>
                 </control>
 
                 <!-- FLAG IS WATCHED  -->
@@ -68,7 +74,7 @@
                     <visible>[Container.Content(actors) + Window.IsVisible(DialogVideoInfo.xml)] | !Container.Content(actors)</visible>
                     <visible>$EXP[Exp_View_Flag_Watched_Album_Song]</visible>
                     <include>Def_Media_Status_Banner_Background</include>
-                    <texture colordiffuse="$VAR[Color_Indicator_Background_Watched]" background="true">misc/banner_status_overlay.png</texture>
+                    <texture colordiffuse="$VAR[Color_Indicator_Background_Watched]" background="true">dialog/misc/banner_status_overlay.png</texture>
                 </control>
 
                 <!-- FLAG IS UNWATCHED  -->
@@ -81,7 +87,7 @@
                     <visible>![Control.IsVisible(9550) | Control.IsVisible(9557)]</visible>
                     <visible>[Container.Content(actors) + Window.IsVisible(DialogVideoInfo.xml)] | !Container.Content(actors)</visible>
                     <include>Def_Media_Status_Banner_Background</include>
-                    <texture colordiffuse="$VAR[Color_Indicator_Background_UnWatched]" background="true">misc/banner_status_overlay.png</texture>
+                    <texture colordiffuse="$VAR[Color_Indicator_Background_UnWatched]" background="true">dialog/misc/banner_status_overlay.png</texture>
                 </control>
 
                 <!-- FLAG IS NEW  -->
@@ -89,7 +95,7 @@
                 <control type="image">
                     <visible>!ListItem.IsResumable + !$EXP[IsTVShowInProgress] + !ListItem.IsPlaying + [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + [$EXP[IsNewMovie] | $EXP[IsNewTVShow] | $EXP[IsNewEpisode]]] + !Skin.HasSetting(hide.markers.newcontent)</visible>
                     <include>Def_Media_Status_Banner_Background</include>
-                    <texture colordiffuse="$VAR[Color_Indicator_Background_New]" background="true">misc/banner_status_overlay.png</texture>
+                    <texture colordiffuse="$VAR[Color_Indicator_Background_New]" background="true">dialog/misc/banner_status_overlay.png</texture>
                 </control>
 
                 <!-- LABEL MOVIE IN PROGRESS  -->
@@ -192,9 +198,7 @@
 
             <control type="group">
                 <visible>String.StartsWith(ListItem.Icon,Default)</visible>
-
                 <visible>[Container.Content(files) | [Container.Content(movies) + String.IsEmpty(ListItem.DBType)] | $EXP[IsJlomFolder]]</visible>
-
                 <visible>$EXP[Views_Bottom_40] | [$EXP[IsJlomFolder] + !$EXP[Views_Bottom_28] + !$EXP[Views_Bottom_18]]</visible>
 
                 <include content="Def_Bottom" condition="$PARAM[small]">
@@ -321,7 +325,7 @@
         </definition>
     </include>
 
-    <include name="Layout_Poster_Rating_Set_Version_Info">
+    <include name="Layout_Poster_Flag_Rating_Type">
         <param name="small" value="$PARAM[small]" default="false" />
         <param name="bottom_small" value="$PARAM[bottom_small]" default="82" />
         <param name="left" value="$PARAM[left]" default="5" />
@@ -333,7 +337,8 @@
             <!-- LEFT - RATING -->
 
             <control type="group">
-                <visible>Skin.HasSetting(show.furniture.video.rating.num.set.version)</visible>
+                <visible>Skin.HasSetting(show.furniture.video.poster.rating)</visible>
+                <visible>!$EXP[ShowProgressBarPercentPlayed]</visible>
 
                 <include content="Def_Bottom" condition="$PARAM[small]">
                    <param name="bottom" value="$PARAM[bottom_small]" />
@@ -352,7 +357,7 @@
                     <visible>!String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,set) + !$EXP[IsYoutubeItem]</visible>
 
                     <control type="image">
-                        <include>Def_Image_Poster_Rating_Info_Left</include>
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
                         <texture background="true" colordiffuse="$VAR[Color_Background_IMDb]">diffuse/circle_64.png</texture>
                     </control>
                     <control type="label">
@@ -368,14 +373,17 @@
                     <visible>!String.IsEmpty(ListItem.DBID) | $EXP[IsPluginShortlist] | [$EXP[IsLibraryGenie] + !$EXP[View_Info_Dialog]] | [Window.IsVisible(Home) + !$EXP[IsTMDbHelperItem]]</visible>
 
                     <visible>String.IsEmpty(ListItem.Rating(imdb))</visible>
-                    <!-- <visible>String.IsEmpty(ListItem.Rating(imdb)) + String.IsEmpty(ListItem.Rating(trakt))</visible> -->
                     <visible>!String.IsEmpty(ListItem.Rating(themoviedb)) | String.IsEqual(Skin.String(Value_Kodi_Rating_Provider),TMDb) | String.IsEqual(Skin.String(Value_Kodi_Rating_Provider),Kodi)</visible>
                     <visible>!String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,set) + !$EXP[IsYoutubeItem]</visible>
 
                     <control type="image">
-                        <include>Def_Image_Poster_Rating_Info_Left</include>
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         <texture background="true" colordiffuse="$VAR[Color_Background_Kodi]">diffuse/circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Label_Kodi]">common/border_circle_64.png</texture>
                     </control>
                     <control type="label">
                         <textcolor>$VAR[Color_Label_Kodi]</textcolor>
@@ -389,12 +397,11 @@
                 <control type="group">
                     <visible>!String.IsEmpty(ListItem.Rating)</visible>
                     <visible>String.IsEmpty(ListItem.DBID)</visible>
+                    <visible>[!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.DBType)) + !Window.IsVisible(Home)] | $EXP[IsTMDbHelperItem]</visible>
                     <visible>!String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,set) + !$EXP[IsYoutubeItem] + ![$EXP[IsLibraryGenie] + !$EXP[View_Info_Dialog]] + !$EXP[IsPluginShortlist]</visible>
 
-                    <visible>[!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.DBType)) + !Window.IsVisible(Home)] | $EXP[IsTMDbHelperItem]</visible>
-
                     <control type="image">
-                        <include>Def_Image_Poster_Rating_Info_Left</include>
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         <texture background="true" colordiffuse="$VAR[Color_Background_TMDb]">diffuse/circle_64.png</texture>
                     </control>
@@ -405,10 +412,43 @@
                 </control>
             </control>
 
+            <!-- LEFT - BDID - TMDB - JLOM -->
+
+            <control type="group">
+                <visible>!Skin.HasSetting(show.furniture.video.poster.rating)</visible>
+                <visible>!$EXP[ShowProgressBarPercentPlayed]</visible>
+
+                <include content="Def_Bottom" condition="$PARAM[small]">
+                   <param name="bottom" value="$PARAM[bottom_small]" />
+                </include>
+
+                <left>$PARAM[left]</left>
+                <bottom>$PARAM[bottom]</bottom>
+
+                <control type="group">
+                    <visible>!String.IsEmpty(ListItem.DBID) + String.IsEmpty(Window(Home).Property(ListVideoForCast))</visible>
+                    <visible>[!String.IsEmpty(Window(Home).Property(view_extended)) + !Skin.HasSetting(filter.video.only.local) + Window.IsVisible(DialogVideoInfo.xml)] | [!Window.IsVisible(DialogVideoInfo.xml) + $EXP[IsTMDbHelperItem] + !Window.IsVisible(Home)] | [!Window.IsVisible(DialogVideoInfo.xml) + $EXP[IsJlomMovieBDID] + !Window.IsVisible(Home)]</visible>
+
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_ItemType]">diffuse/circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Left</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_Empty_DBID]">common/border_circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Image_Poster_Rating_Info_Left</include>
+                        <texture background="false" colordiffuse="$VAR[Color_Indicator_Empty_DBID]">dialog/poster_status/database.png</texture>
+                    </control>
+                </control>
+            </control>
+
             <!-- RIGHT - SETS / VERSION -->
 
             <control type="group">
-                <visible>Skin.HasSetting(show.furniture.video.rating.num.set.version)</visible>
+                <visible>Skin.HasSetting(show.furniture.video.poster.itemtype)</visible>
+                <visible>!$EXP[ShowProgressBarPercentPlayed]</visible>
 
                 <include content="Def_Bottom" condition="$PARAM[small]">
                    <param name="bottom" value="$PARAM[bottom_small]" />
@@ -419,146 +459,80 @@
 
                 <!-- SETS -->
 
-                <control type="image">
+                <control type="group">
                     <visible>ListItem.IsCollection + !$EXP[IsJlomItem]</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>ListItem.IsCollection + !$EXP[IsJlomItem]</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="false" colordiffuse="$VAR[Color_Indicator_Set]">buttonsdialogs/collection.png</texture>
+
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_ItemType]">diffuse/circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_Set_Poster]">common/border_circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Image_Poster_Rating_Info_Right</include>
+                        <texture background="false" colordiffuse="$VAR[Color_Indicator_Set_Poster]">dialog/poster_status/collection.png</texture>
+                    </control>
                 </control>
 
                 <!-- VERSIONS -->
 
-                <control type="image">
+                <control type="group">
                     <visible>ListItem.HasVideoVersions + [!$EXP[View_Info_Dialog] | !String.IsEmpty(Window(Home).Property(view_extended))]</visible>
                     <visible>!Container.Content(videoversions) + !String.StartsWith(Container.FolderPath,videodb://movies/videoversions)</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>ListItem.HasVideoVersions + [!$EXP[View_Info_Dialog] | !String.IsEmpty(Window(Home).Property(view_extended))]</visible>
-                    <visible>!Container.Content(videoversions) + !String.StartsWith(Container.FolderPath,videodb://movies/videoversions)</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Indicator_Version]">buttonsdialogs/server.png</texture>
+
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_ItemType]">diffuse/circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_Version_Poster]">common/border_circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Image_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_Version_Poster]">dialog/poster_status/server.png</texture>
+                    </control>
                 </control>
 
                 <!-- PLUGIN JLOM - MOVIE NOT IN DB -->
 
-                <control type="image">
-                    <visible>$EXP[IsJlomMovie]</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>$EXP[IsJlomMovie]</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Indicator_JLOM]">buttonsdialogs/info.png</texture>
-                </control>
-
-                <!-- DBTYPE MOVIE / TVSHOW ? -->
-
-                <control type="image">
-                    <visible>String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)</visible>
-                    <visible>Control.IsVisible(9506) | Control.IsVisible(9556) | Control.IsVisible(9560) | [Control.IsVisible(6) + !String.IsEmpty(Window(Home).Property(ListVideoForCast))] | $EXP[IsTMDbHelper_User_Movies_Tvshows_List]</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)</visible>
-                    <visible>Control.IsVisible(9506) | Control.IsVisible(9556) | Control.IsVisible(9560) | [Control.IsVisible(6) + !String.IsEmpty(Window(Home).Property(ListVideoForCast))] | $EXP[IsTMDbHelper_User_Movies_Tvshows_List]</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Indicator_DBType]">buttonsdialogs/$INFO[ListItem.DBType].png</texture>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_Poster_TMDb_Status">
-        <param name="small" value="$PARAM[small]" default="false" />
-        <param name="bottom_small" value="$PARAM[bottom_small]" default="82" />
-        <param name="left" value="$PARAM[left]" default="5" />
-        <param name="right" value="$PARAM[right]" default="5" />
-        <param name="bottom" value="$PARAM[bottom]" default="-10" />
-
-        <definition>
-
-            <!-- BDID - TMDB - JLOM -->
-
-            <control type="group">
-                <visible>!Skin.HasSetting(show.furniture.video.rating.num.set.version)</visible>
-
-                <include content="Def_Bottom" condition="$PARAM[small]">
-                   <param name="bottom" value="$PARAM[bottom_small]" />
-                </include>
-
-                <left>$PARAM[left]</left>
-                <bottom>$PARAM[bottom]</bottom>
-
                 <control type="group">
-                    <visible>!String.IsEmpty(ListItem.DBID)</visible>
-                    <visible>[!String.IsEmpty(Window(Home).Property(view_extended)) + !Skin.HasSetting(filter.video.only.local) + Window.IsVisible(DialogVideoInfo.xml)] | [!Window.IsVisible(DialogVideoInfo.xml) + $EXP[IsTMDbHelperItem] + !Window.IsVisible(Home)] | [!Window.IsVisible(DialogVideoInfo.xml) + $EXP[IsJlomMovieBDID] + !Window.IsVisible(Home)]</visible>
+                    <visible>$EXP[IsJlomMovie]</visible>
 
                     <control type="image">
-                        <include>Def_Image_Poster_Rating_Info_Left</include>
-                        <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                        <include>Animation_Fade_Background_Marker_Icon</include>
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_ItemType]">diffuse/circle_64.png</texture>
                     </control>
-                    <control type="label">
-                        <include>Def_Label_Poster_TMDb_DBID_status</include>
-                        <label>$VAR[Label_Icon_DBID]</label>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_Circle_Type]">common/border_circle_64.png</texture>
                     </control>
-                </control>
-            </control>
-
-            <!-- RIGHT - SETS / VERSION -->
-
-            <control type="group">
-                <visible>!Skin.HasSetting(show.furniture.video.rating.num.set.version)</visible>
-
-                <include content="Def_Bottom" condition="$PARAM[small]">
-                   <param name="bottom" value="$PARAM[bottom_small]" />
-                </include>
-
-                <right>$PARAM[right]</right>
-                <bottom>$PARAM[bottom]</bottom>
-
-                <!-- VERSIONS -->
-
-                <control type="image">
-                    <visible>ListItem.HasVideoVersions + !String.IsEmpty(ListItem.DBID)</visible>
-                    <visible>[Window.IsVisible(DialogVideoInfo.xml) + !String.IsEmpty(Window(Home).Property(view_extended)) + Skin.HasSetting(filter.video.only.local)]</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>ListItem.HasVideoVersions + !String.IsEmpty(ListItem.DBID)</visible>
-                    <visible>[Window.IsVisible(DialogVideoInfo.xml) + !String.IsEmpty(Window(Home).Property(view_extended)) + Skin.HasSetting(filter.video.only.local)]</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Indicator_Version]">buttonsdialogs/server.png</texture>
+                    <control type="image">
+                        <include>Def_Image_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_JLOM]">dialog/poster_status/info.png</texture>
+                    </control>
                 </control>
 
                 <!-- DBTYPE MOVIE / TVSHOW ? -->
 
-                <control type="image">
-                    <visible>String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)</visible>
+                <control type="group">
+                    <visible>String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,musicvideo)</visible>
                     <visible>Control.IsVisible(9506) | Control.IsVisible(9556) | Control.IsVisible(9560) | [Control.IsVisible(6) + !String.IsEmpty(Window(Home).Property(ListVideoForCast))] | $EXP[IsTMDbHelper_User_Movies_Tvshows_List]</visible>
-                    <include>Def_Background_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Background_Others]">diffuse/circle_64.png</texture>
-                    <include>Animation_Fade_Background_Marker_Icon</include>
-                </control>
-                <control type="image">
-                    <visible>String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)</visible>
-                    <visible>Control.IsVisible(9506) | Control.IsVisible(9556) | Control.IsVisible(9560) | [Control.IsVisible(6) + !String.IsEmpty(Window(Home).Property(ListVideoForCast))] | $EXP[IsTMDbHelper_User_Movies_Tvshows_List]</visible>
-                    <include>Def_Image_Poster_Rating_Info_Right</include>
-                    <texture background="true" colordiffuse="$VAR[Color_Indicator_DBType]">buttonsdialogs/$INFO[ListItem.DBType].png</texture>
+
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Background_ItemType]">diffuse/circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Background_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_DBType]">common/border_circle_64.png</texture>
+                    </control>
+                    <control type="image">
+                        <include>Def_Image_Poster_Rating_Info_Right</include>
+                        <texture background="true" colordiffuse="$VAR[Color_Indicator_DBType]">dialog/poster_dbtype/$INFO[ListItem.DBType].png</texture>
+                    </control>
                 </control>
             </control>
         </definition>
@@ -595,7 +569,7 @@
 
                 <!-- SLIDE UP - HOME - HIDE WITH NOWPLAYING - ENABLE  / HOME CLEAN - WITH MAIN MENU HIDDEN -->
 
-                <animation type="Conditional" condition="[Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !Control.HasFocus(9099) + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(MyPVRGuide.xml) + !Window.IsVisible(DialogContextMenu.xml)] | [Skin.HasSetting(home.style.horizontal.clean) + Skin.HasSetting(hide.home.menu) + !$EXP[Home_Menu_Is_Focus] + !Control.HasFocus(9099)]" reversible="true">
+                <animation type="Conditional" condition="[Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !$EXP[Home_Search_Is_Focus] + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(MyPVRGuide.xml) + !Window.IsVisible(DialogContextMenu.xml)] | [Skin.HasSetting(home.style.horizontal.clean) + Skin.HasSetting(hide.home.menu) + !$EXP[Home_Menu_Is_Focus] + !$EXP[Home_Search_Is_Focus]]" reversible="true">
                     <effect type="slide" start="0,0" end="-115,0" tween="sine" easing="out" time="250" delay="0" />
                     <effect type="fade" start="100" end="0" time="150" delay="0" />
                 </animation>
@@ -612,7 +586,7 @@
                     <!-- SEARCH ICON HEADER -->
 
                     <control type="group">
-                        <visible>!Control.HasFocus(9099) + !Control.HasFocus(90999) + !Control.HasFocus(340)</visible>
+                        <visible>!Control.HasFocus(9099) + !Control.HasFocus(90009) + !Control.HasFocus(340)</visible>
 
                         <control type="image">
                             <width>160</width>
@@ -798,7 +772,7 @@
 
                 <!-- SLIDE LEFT - HOME - HIDE WITH NOWPLAYING - ENABLE -->
 
-                <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !Control.HasFocus(9099) + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(MyPVRGuide.xml) + !Window.IsVisible(DialogContextMenu.xml)" reversible="true">
+                <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !$EXP[Home_Search_Is_Focus] + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(MyPVRGuide.xml) + !Window.IsVisible(DialogContextMenu.xml)" reversible="true">
                     <effect type="slide" start="0,0" end="-115,0" tween="sine" easing="out" time="250" delay="0" />
                     <effect type="fade" start="100" end="0" time="150" delay="0" />
                 </animation>
@@ -1051,7 +1025,7 @@
 
                 <!-- SLIDE RIGHT - HOME - HIDE WITH NOWPLAYING - ENABLE -->
 
-                <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(DialogContextMenu.xml) + !Control.HasFocus(9099)" reversible="true">
+                <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(DialogContextMenu.xml) + !$EXP[Home_Search_Is_Focus]" reversible="true">
                     <effect type="slide" start="0,0" end="350,0" tween="sine" easing="out" time="250" delay="0" />
                     <effect type="fade" start="100" end="0" time="150" delay="0" />
                 </animation>
@@ -1138,13 +1112,13 @@
                         <control type="image">
                             <description>Busy animation</description>
                             <aspectratio>keep</aspectratio>
-                            <texture>dialog/loading-back.png</texture>
+                            <texture>dialog/busy/loading-back.png</texture>
                         </control>
                         <control type="image">
                             <description>Busy animation</description>
                             <animation effect="rotate" condition="true" start="360" end="0" loop="true" time="1000" center="auto">Conditional</animation>
                             <aspectratio>keep</aspectratio>
-                            <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/loading-spinner.png</texture>
+                            <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/busy/loading-spinner.png</texture>
                         </control>
                     </control>
                 </control>
@@ -1253,7 +1227,7 @@
 
             <!-- SLIDE DOWN - HOME - HIDE WITH NOWPLAYING - ENABLE -->
 
-            <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !Control.HasFocus(9099) + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(DialogContextMenu.xml) + !Skin.HasSetting(home.style.horizontal.clean)" reversible="true">
+            <animation type="Conditional" condition="Skin.HasSetting(hide.home.menu.with.nowplaying.extended) + Player.HasMedia + $EXP[Extended_Now_Playing_Is_Enable] + [ControlGroup(777).HasFocus() | !$EXP[Extended_Now_Playing_Helper_AutoShow]] + !$EXP[Home_Menu_Is_Focus] + !$EXP[Home_Search_Is_Focus] + !ControlGroup(301).HasFocus() + Window.IsVisible(Home) + !$EXP[View_Info_Dialog] + !Window.IsVisible(DialogContextMenu.xml) + !Skin.HasSetting(home.style.horizontal.clean)" reversible="true">
                 <effect type="slide" start="0" end="0,123" time="250" tween="sine" easing="out" />
                 <effect type="fade" start="100" end="0" time="150" delay="0" />
             </animation>
@@ -1329,13 +1303,13 @@
                         <control type="image">
                             <description>Busy animation</description>
                             <aspectratio>keep</aspectratio>
-                            <texture>dialog/loading-back.png</texture>
+                            <texture>dialog/busy/loading-back.png</texture>
                         </control>
                         <control type="image">
                             <description>Busy animation</description>
                             <animation effect="rotate" condition="true" start="360" end="0" loop="true" time="1000" center="auto">Conditional</animation>
                             <aspectratio>keep</aspectratio>
-                            <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/loading-spinner.png</texture>
+                            <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/busy/loading-spinner.png</texture>
                         </control>
                     </control>
                 </control>
@@ -1390,7 +1364,7 @@
 
             <top>880</top>
             <align>left</align>
-            <left>View_List_Side</left>
+            <left>70</left>
 
             <!-- <include content="Def_Right" condition="!Skin.HasSetting(show.furniture.clock.date.weather)"> -->
                 <!-- <param name="right" value="View_List_Side" /> -->
@@ -1408,6 +1382,15 @@
                 <visible>!$EXP[IsYoutube_Comments] + !$EXP[IsYoutubeItem] + !ListItem.IsParentFolder</visible>
                 <visible>![Container.Content(files) | [Container.Content(movies) + String.IsEmpty(ListItem.DBType) + !$EXP[IsAnPlugin]]]</visible>
                 <visible>!ListItem.HasVideoVersions + !String.IsEmpty(ListItem.Label)</visible>
+            </control>
+
+            <!-- MUSIC VIDEO -->
+
+            <control type="label">
+                <include>Def_Info_Left_Line1</include>
+                <label>$INFO[ListItem.Artist]$VAR[Label_Footer_Year,  •  ,]$INFO[ListItem.Title,  •  ,]</label>
+                <visible>String.IsEqual(ListItem.DBType,musicvideo)</visible>
+                <visible>!String.IsEmpty(ListItem.Artist)</visible>
             </control>
 
             <!-- MOVIES VIDEOVERSIONS -->
@@ -1453,7 +1436,7 @@
             <control type="label">
                 <include>Def_Info_Left_Line1</include>
                 <label>$INFO[ListItem.Label]</label>
-                <visible>![Container.Content(movies) | String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,video) | $EXP[IsYoutubeItem] | $EXP[IsYoutube_Comments] | Container.Content(addons) | Container.Content(songs) | Container.Content(albums) | ListItem.IsCollection | String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,season) | Window.IsVisible(FileManager.xml) | Container.Content(files) | ListItem.IsParentFolder | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml)]</visible>
+                <visible>![Container.Content(movies) | String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,video) | $EXP[IsYoutubeItem] | $EXP[IsYoutube_Comments] | Container.Content(addons) | Container.Content(songs) | Container.Content(albums) | ListItem.IsCollection | String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBType,musicvideo) | String.IsEqual(ListItem.DBtype,season) | Window.IsVisible(FileManager.xml) | Container.Content(files) | ListItem.IsParentFolder | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml)]</visible>
                 <visible>!Window.IsVisible(script-globalsearch.xml)</visible>
             </control>
 
@@ -1668,6 +1651,16 @@
                 <visible>Control.IsVisible(52) | Control.IsVisible(503) | [Control.IsVisible(515) + Container.Content(artists)] | [Control.IsVisible(500) + Container.Content(artists)] | Control.IsVisible(508) | Control.IsVisible(547) | Control.IsVisible(557) | Control.IsVisible(5228) | Control.IsVisible(5238) | Window.IsVisible(script-globalsearch.xml)</visible>
                 <visible>!Window.IsVisible(MyPrograms.xml) + !$EXP[IsPluginRadio] + !ListItem.IsParentFolder</visible>
             </control>
+
+            <!-- MUSIC VIDEO -->
+
+            <control type="label">
+                <include>Def_Info_Right_Line1</include>
+                <label>$INFO[ListItem.Album,,  •  ]$VAR[Label_Duration_Time_Check]$INFO[ListItem.Genre,  •  ,]</label>
+                <visible>String.IsEqual(ListItem.DBType,musicvideo)</visible>
+                <visible>Control.IsVisible(52) | Control.IsVisible(503) | [Control.IsVisible(515) + Container.Content(musicvideos)] | [Control.IsVisible(500) + Container.Content(musicvideos)] | Control.IsVisible(508) | Control.IsVisible(547) | Control.IsVisible(557) | Control.IsVisible(5228) | Control.IsVisible(5238)</visible>
+                <visible>!Window.IsVisible(MyPrograms.xml) + !$EXP[IsPluginRadio] + !ListItem.IsParentFolder</visible>
+            </control>
         </control>
 
         <!-- INFORMATION - RIGHT - NUM ITEM -->
@@ -1851,7 +1844,7 @@
             <include>Animation_Dialog_Info_Fade_Out_150</include>
 
             <align>left</align>
-            <left>View_List_Side</left>
+            <left>70</left>
 
              <!-- INFORMATION - LEFT -->
 
@@ -1928,7 +1921,7 @@
                     <width>45</width>
                     <height>45</height>
                     <aspectratio align="left">keep</aspectratio>
-                    <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/loading-spinner.png</texture>
+                    <texture colordiffuse="$VAR[Color_Loading_Spinner]">dialog/busy/loading-spinner.png</texture>
                 </control>
             </control>
 

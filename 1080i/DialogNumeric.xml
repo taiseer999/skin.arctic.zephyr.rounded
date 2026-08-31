@@ -13,20 +13,6 @@
                 <param name="colordiffuse" value="Panel" />
             </include>
 
-            <!-- TITLE -->
-
-            <control type="label" id="1">
-                <description>dialog Heading</description>
-                <left>11</left>
-                <right>11</right>
-                <top>-86</top>
-                <height>75</height>
-                <aligny>center</aligny>
-                <align>center</align>
-                <font>SmallBold</font>
-                <textcolor>Selected</textcolor>
-            </control>
-
             <!-- EDIT -->
 
             <control type="image">
@@ -230,7 +216,7 @@
                     <ondown>21</ondown>
                     <include>Def_Button_Dimensions_Numpad</include>
                     <include content="Texture_Dialog_NumPad">
-                        <param name="icon" value="buttonsdialogs/uninstall2.png" />
+                        <param name="icon" value="dialog/keyboard/uninstall2.png" />
                     </include>
                     <left>257</left>
                     <top>48</top>
@@ -246,7 +232,7 @@
                     <ondown>23</ondown>
                     <include>Def_Button_Dimensions_Numpad</include>
                     <include content="Texture_Dialog_NumPad">
-                        <param name="icon" value="buttonsdialogs/enabled2.png" />
+                        <param name="icon" value="dialog/keyboard/enabled2.png" />
                     </include>
                     <left>257</left>
                     <top>240</top>

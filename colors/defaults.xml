@@ -35,7 +35,7 @@
     <color name="FanartFade">FFFFFFFF</color>
     <color name="FanartFadeBlur">FFFFFFFF</color>
     <color name="FloorFade">FF181818</color>
-    <color name="FloorFade2">CC181818</color>
+    <color name="FloorFade2">CC050505</color>
     <color name="FloorFadeBlur">CC181818</color>
 
     <color name="PanelWhiteSetting">FFDDDDDD</color>
@@ -64,6 +64,8 @@
 
     <color name="OSD_Black">DF000000</color>
     <color name="Panel">FF2D2E2E</color>
+    <color name="PanelSetting">AA1F1E1D</color>
+    <color name="PanelLevel">881F1E1D</color>
 
     <color name="OSDProgressBarColor">0DFFFFFF</color>
     <color name="ProgressBarCacheColor">FFA0A0A0</color>

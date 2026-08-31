@@ -2,6 +2,11 @@
 <fonts>
     <fontset id="Default" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -9,7 +14,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -335,11 +341,6 @@
             <size>48</size>
         </font>
         <font>
-            <name>SymbolListMini</name>
-            <filename>symbol.ttf</filename>
-            <size>18</size>
-        </font>
-        <font>
             <name>Symbols</name>
             <filename>Symbols.ttf</filename>
             <size>30</size>
@@ -489,6 +490,11 @@
 
     <fontset id="Fallback" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -496,7 +502,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -979,6 +986,11 @@
 
     <fontset id="Fallback bold" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -986,7 +998,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -1476,6 +1489,11 @@
 
     <fontset id="Arial" unicode="true">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -1483,7 +1501,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -1967,6 +1986,11 @@
 
     <fontset id="Arial 2" unicode="true">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -1974,7 +1998,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -2507,6 +2532,11 @@
 
     <fontset id="AZ Reloaded" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -2514,7 +2544,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -2995,6 +3026,11 @@
 
     <fontset id="AZ Standard" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -3002,7 +3038,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -3485,6 +3522,11 @@
 
     <fontset id="AZ Standard bold" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -3492,7 +3534,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -3961,6 +4004,11 @@
 
     <fontset id="Segoe Light" unicode="false">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -3968,7 +4016,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -4451,6 +4500,11 @@
 
     <fontset id="Inter Regular" unicode="true">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -4458,7 +4512,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>
@@ -4991,6 +5046,11 @@
 
     <fontset id="NotoSans Regular" unicode="true">
         <font>
+            <name>SymbolListMini</name>
+            <filename>symbol.ttf</filename>
+            <size>18</size>
+        </font>
+        <font>
             <name>Ratio</name>
             <filename>MC360.ttf</filename>
             <size>18</size>
@@ -4998,7 +5058,8 @@
         <font>
             <name>Rating</name>
             <filename>MC360.ttf</filename>
-            <size>26</size>
+            <style>bold</style>
+            <size>20</size>
         </font>
         <font>
             <name>channel</name>

@@ -224,10 +224,10 @@
                         <width>1278</width>
                         <textoffsetx>30</textoffsetx>
                         <textcolor>Dark3</textcolor>
-                        <textureradionofocus colordiffuse="Dark3">buttons/radio-off.png</textureradionofocus>
-                        <textureradiooffdisabled colordiffuse="Black12">buttons/radio-off.png</textureradiooffdisabled>
-                        <textureradioofffocus colordiffuse="Selected">buttons/radio-off.png</textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="Dark3">buttons/radio-off.png</textureradiooffnofocus>
+                        <textureradionofocus colordiffuse="Dark3">dialog/buttons/radio-off.png</textureradionofocus>
+                        <textureradiooffdisabled colordiffuse="Black12">dialog/buttons/radio-off.png</textureradiooffdisabled>
+                        <textureradioofffocus colordiffuse="Selected">dialog/buttons/radio-off.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="Dark3">dialog/buttons/radio-off.png</textureradiooffnofocus>
                         <include>Def_Settings_Button_Focus_Select_Right_Side</include>
                         <label>$LOCALIZE[31334]</label>
                         <onclick>ActivateWindow(1288)</onclick>
@@ -270,10 +270,6 @@
                     <include>Def_Settings_Button_Focus_Select_Right_Side</include>
                     <label>$LOCALIZE[31080]</label>
                     <onclick>RunScript(script.skinshortcuts,type=manage&amp;menu=mainmenu)</onclick>
-                    <onfocus>ClearProperty(Symbols,Home)</onfocus>
-                    <onfocus>ClearProperty(Backg,Home)</onfocus>
-                    <onfocus>ClearProperty(custommenu,Home)</onfocus>
-                    <onfocus>ClearProperty(skinshortcuts-Widget,Home)</onfocus>
                 </control>
 
                 <!-- HOME - CUSTOM POWER MENU -->
@@ -295,7 +291,7 @@
                     <include>Def_Skin_Settings_Level_base</include>
                     <include>Def_Settings_Button_Focus_Select_Right_Side</include>
                     <label>$LOCALIZE[31635]</label>
-                    <onclick>RunScript(script.skinshortcuts,type=manage&amp;menu=searchmenu)</onclick>
+                    <onclick>RunScript(script.skinshortcuts,type=manage&amp;menu=searchmenulist)</onclick>
                 </control>
 
                 <!-- SETTING LANGUAGE DIALOG WIKIPEDIA -->
@@ -310,19 +306,6 @@
                     <onclick>SetProperty(includesetting,Value_Wiki_Language,Home)</onclick>
                     <onclick>Addon.OpenSettings(script.wikipedia)</onclick>
                     <visible>System.AddonIsEnabled(script.wikipedia)</visible>
-                </control>
-
-                <!-- KODI RATING PROVIDER -->
-
-                <control type="button" id="92632">
-                    <width>1278</width>
-                    <visible>Container(3000).HasFocus(2)</visible>
-                    <include>Def_Skin_Settings_Level_base</include>
-                    <include>Def_Settings_Button_Focus_Select_Right_Side</include>
-                    <label>$LOCALIZE[15225] $LOCALIZE[563] Kodi</label>
-                    <label2>$VAR[Label_Setting_Kodi_Rating_Provider]</label2>
-                    <onclick>SetProperty(includesetting,Value_Kodi_Rating_Provider,Home)</onclick>
-                    <onclick>ActivateWindow(1248)</onclick>
                 </control>
 
         <!-- MENU - DISPALY OPITONS -->
@@ -1084,6 +1067,16 @@
                     <onclick>SetProperty(SelectType,country_logos,Home)</onclick>
                     <onclick>RunScript(script.image.resource.select,property=country.logos&amp;type=resource.images.moviecountryicons)</onclick>
                 </control>
+                <control type="button" id="9584" description="Studios">
+                    <width>1278</width>
+                    <visible>Container(3000).HasFocus(3)</visible>
+                    <include>Def_Skin_Settings_Level_advanced</include>
+                    <include>Def_Settings_Button_Focus_Select_Right_Side</include>
+                    <label>$LOCALIZE[31263]</label>
+                    <label2>$VAR[Label_Setting_Studio_Icons]</label2>
+                    <onclick>SetProperty(SelectType,studio_logos,Home)</onclick>
+                    <onclick>RunScript(script.image.resource.select,property=studio.logos&amp;type=resource.images.studios)</onclick>
+                </control>
                 <control type="button" id="9585" description="Record Labels">
                     <width>1278</width>
                     <visible>Container(3000).HasFocus(3)</visible>
@@ -1455,7 +1448,7 @@
                     <enable>Skin.HasSetting(show.furniture.clock.date.weather)</enable>
                 </control>
 
-                <!-- SHOW - RATING - INFO TYPE OVER POSTER       -->
+                <!-- SHOW - RATING - INFO TYPE OVER POSTER -->
 
                 <control type="radiobutton" id="92631" description="Select media flags">
                     <width>1278</width>
@@ -1463,9 +1456,53 @@
                     <include>Def_Skin_Settings_Level_standard</include>
                     <include>Def_Settings_Button_Focus_Select_Right_Side</include>
                     <label>$LOCALIZE[31163] ($LOCALIZE[31151])</label>
-                    <selected>Skin.HasSetting(show.furniture.video.rating.num.set.version)</selected>
-                    <onclick>Skin.ToggleSetting(show.furniture.video.rating.num.set.version)</onclick>
-                    <onclick>SetProperty(reloadskin,1,Home)</onclick>
+                    <selected>Skin.HasSetting(show.furniture.video.poster.rating)</selected>
+                    <onclick>Skin.ToggleSetting(show.furniture.video.poster.rating)</onclick>
+                </control>
+
+                <!-- TMDB lIST - KODI RATING PROVIDER FOR ITEM IN LOCAL -->
+
+                <control type="button" id="92632">
+                    <width>1278</width>
+                    <visible>Container(3000).HasFocus(5)</visible>
+                    <include>Def_Skin_Settings_Level_standard</include>
+                    <include>Def_Settings_Button_Focus_Select_Right_Side</include>
+                    <label>$LOCALIZE[31219]$ADDON[plugin.video.themoviedb.helper 32520] - $LOCALIZE[14240]</label>
+                    <label2>$VAR[Label_Setting_Kodi_Rating_Provider]</label2>
+                    <onclick>SetProperty(includesetting,Value_Kodi_Rating_Provider,Home)</onclick>
+                    <onclick>ActivateWindow(1248)</onclick>
+                    <visible>Skin.HasSetting(show.furniture.video.poster.rating)</visible>
+                </control>
+
+                <!-- SHOW - ITEM TYPE - INFO TYPE OVER POSTER -->
+
+                <control type="radiobutton" id="92630" description="Select media flags">
+                    <width>1278</width>
+                    <visible>Container(3000).HasFocus(5)</visible>
+                    <include>Def_Skin_Settings_Level_standard</include>
+                    <include>Def_Settings_Button_Focus_Select_Right_Side</include>
+                    <label>$LOCALIZE[40003] / $LOCALIZE[36910] ($LOCALIZE[31151])</label>
+                    <selected>Skin.HasSetting(show.furniture.video.poster.itemtype)</selected>
+                    <onclick>Skin.ToggleSetting(show.furniture.video.poster.itemtype)</onclick>
+                </control>
+
+                <!-- SHOW - COLOR - BACKGROUND - INFO TYPE -->
+
+                <control type="radiobutton" id="92634" description="Select media flags">
+                    <width>1278</width>
+                    <visible>Container(3000).HasFocus(5)</visible>
+                    <include>Def_Skin_Settings_Level_standard</include>
+                    <include>Def_Settings_Button_Focus_Select_Right_Side</include>
+                    <include content="Def_Button_Colorbox">
+                        <param name="colorcode" value="$VAR[Color_Background_ItemType]" />
+                    </include>
+                    <label>$LOCALIZE[31219]$LOCALIZE[745]</label>
+                    <onclick condition="String.IsEmpty(Skin.String(flag_poster_itemtype))">Skin.SetString(flag_poster_itemtype,1)</onclick>
+                    <onclick condition="String.IsEqual(Skin.String(flag_poster_itemtype),1)">Skin.SetString(flag_poster_itemtype,2)</onclick>
+                    <onclick condition="String.IsEqual(Skin.String(flag_poster_itemtype),2)">Skin.SetString(flag_poster_itemtype,3)</onclick>
+                    <onclick condition="String.IsEqual(Skin.String(flag_poster_itemtype),3)">Skin.SetString(flag_poster_itemtype,4)</onclick>
+                    <onclick condition="String.IsEqual(Skin.String(flag_poster_itemtype),4)">Skin.Reset(flag_poster_itemtype)</onclick>
+                    <visible>Skin.HasSetting(show.furniture.video.poster.itemtype)</visible>
                 </control>
 
                 <!-- AUTOSCROLL - MAIN TITLE -->
