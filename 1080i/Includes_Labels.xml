@@ -446,13 +446,13 @@
     </variable>
 
     <variable name="Label_Flag_Indicator_Is_Resumable">
-        <value condition="Skin.HasSetting(markers.inprogress.percentage) + !String.IsEmpty(ListItem.PercentPlayed)">$INFO[ListItem.PercentPlayed,,%]</value>
+        <value condition="Skin.HasSetting(markers.inprogress.percentage) + !String.IsEmpty(ListItem.PercentPlayed)">$INFO[ListItem.PercentPlayed,, %]</value>
         <value>$LOCALIZE[31367]</value>
     </variable>
 
     <variable name="Label_Flag_Indicator_TVShows_In_Progress">
         <value condition="!Skin.HasSetting(hide.markers.inprogress.tvshow.label)">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
-        <value condition="Skin.HasSetting(markers.inprogress.percentage) + !String.IsEmpty(ListItem.Property(WatchedEpisodePercent))">$INFO[ListItem.Property(WatchedEpisodePercent),,%]</value>
+        <value condition="Skin.HasSetting(markers.inprogress.percentage) + !String.IsEmpty(ListItem.Property(WatchedEpisodePercent))">$INFO[ListItem.Property(WatchedEpisodePercent),, %]</value>
         <value>$LOCALIZE[31367]</value>
     </variable>
 
@@ -625,6 +625,11 @@
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
     </variable>
 
+    <variable name="Label_Player_Genre">
+        <value condition="Skin.HasSetting(enabled.tmdb.helper.service) + !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Genre.1.Name))">$INFO[Window(Home).Property(TMDbHelper.Player.Genre.1.Name)]$INFO[Window(Home).Property(TMDbHelper.Player.Genre.2.Name), / ,]</value>
+        <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[VideoPlayer.Genre]</value>
+    </variable>
+
     <variable name="Label_Genre_Ext">
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.1.Name)]$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre.2.Name), / ,]</value>
     </variable>
@@ -705,13 +710,17 @@
 
     <variable name="Label_Rating_IMDb_Votes_Top250">
         <value condition="!String.IsEmpty(ListItem.Rating(imdb)) + !String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]$INFO[ListItem.Top250,  •  Top , / 250]</value>
-
         <value condition="!String.IsEmpty(ListItem.Rating(imdb)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Top250))">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]$INFO[Window(Home).Property(TMDbHelper.ListItem.Top250),  •  Top , / 250]</value>
-
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Top250))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes),  •  $LOCALIZE[205] ,]$INFO[Window(Home).Property(TMDbHelper.ListItem.Top250),  •  Top , / 250]</value>
-
         <value condition="!String.IsEmpty(ListItem.Rating(imdb))">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes),  •  $LOCALIZE[205] ,]</value>
+    </variable>
 
+    <variable name="Label_View_501_Rating_IMDb_Votes">
+        <value condition="!String.IsEmpty(ListItem.Rating(imdb)) + !String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating(imdb)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Top250))">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Top250))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes),  •  $LOCALIZE[205] ,]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating(imdb))">$INFO[ListItem.Rating(imdb)]$INFO[ListItem.Votes(imdb),  •  $LOCALIZE[205] ,]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes),  •  $LOCALIZE[205] ,]</value>
     </variable>
 
@@ -2423,22 +2432,22 @@
 
     <variable name="Label_OSD_Sub_Title_Info_Video">
         <value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,  •  ]$INFO[VideoPlayer.Album,  •  ]$VAR[Label_OSD_Time_Remaining,  •  $LOCALIZE[31584] ]</value>
-        <value condition="!String.IsEmpty(VideoPlayer.Genre) + !VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre,  •  ]$VAR[Label_OSD_Time_Remaining,  •  $LOCALIZE[31584] ]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value>
-        <value condition="String.IsEmpty(VideoPlayer.Genre) + !VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.Premiered)">$INFO[VideoPlayer.Premiered]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value>
+        <value condition="!String.IsEmpty(VideoPlayer.Genre) + !VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Year]$VAR[Label_Player_Genre,  •  ]$VAR[Label_OSD_Time_Remaining,  •  $LOCALIZE[31584] ]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value>
+        <value condition="String.IsEmpty(VideoPlayer.Genre) + !VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.Premiered)">$INFO[VideoPlayer.Premiered]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value>
 
-        <value condition="VideoPlayer.Content(episodes) + Integer.IsGreater(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season,  •  $LOCALIZE[20359] ,x]$INFO[VideoPlayer.Episode]$INFO[VideoPlayer.Title,  •  ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value>
+        <value condition="VideoPlayer.Content(episodes) + Integer.IsGreater(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season,  •  $LOCALIZE[20359] ,x]$INFO[VideoPlayer.Episode]$INFO[VideoPlayer.Title,  •  ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value>
 
-        <value condition="VideoPlayer.Content(episodes) + !Integer.IsGreater(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season,  •  $LOCALIZE[20359] ,x]$INFO[VideoPlayer.Episode,0,]$INFO[VideoPlayer.Title,  •  ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value>
+        <value condition="VideoPlayer.Content(episodes) + !Integer.IsGreater(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season,  •  $LOCALIZE[20359] ,x]$INFO[VideoPlayer.Episode,0,]$INFO[VideoPlayer.Title,  •  ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value>
 
-        <!-- <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season ,  •  $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode,  •  $LOCALIZE[20359] ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003]]</value> -->
-        <value>$INFO[player.chapter,$LOCALIZE[21396] ]$INFO[Player.ChapterCount,/]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value>
+        <!-- <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Premiered]$INFO[VideoPlayer.Season ,  •  $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode,  •  $LOCALIZE[20359] ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485]]</value> -->
+        <value>$INFO[player.chapter,$LOCALIZE[21396] ]$INFO[Player.ChapterCount,/]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value>
     </variable>
 
     <!-- LABEL OSD VIDEO - SUB TITLE -->
 
     <variable name="Label_OSD_Sub_Title_Video">
         <value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,  •  ]$INFO[VideoPlayer.Album,  •  ]</value>
-        <value condition="!String.IsEmpty(VideoPlayer.Genre)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre,  •  ]</value>
+        <value condition="!String.IsEmpty(VideoPlayer.Genre)">$INFO[VideoPlayer.Year]$VAR[Label_Player_Genre,  •  ]</value>
         <value condition="String.IsEmpty(VideoPlayer.Genre) + !String.IsEmpty(VideoPlayer.Premiered) + !Player.IsLive">$INFO[VideoPlayer.Premiered]</value>
         <value condition="String.IsEmpty(VideoPlayer.Genre) + !String.IsEmpty(VideoPlayer.Premiered) + Player.IsLive">$INFO[VideoPlayer.Premiered,,  •  ]$LOCALIZE[19664]</value>
         <value>$INFO[player.chapter,$LOCALIZE[21396] ]$INFO[Player.ChapterCount,/]</value>
@@ -2756,7 +2765,7 @@
     <variable name="Label_NowPlaying_Time">
         <value condition="Player.HasAudio">$INFO[Player.Time]$INFO[Player.Duration, / ,]</value>
         <value condition="!VideoPlayer.Content(livetv)">$INFO[Player.Time]$INFO[Player.Duration, / ,]</value>
-        <!-- <value condition="!VideoPlayer.Content(livetv)">$INFO[Player.Time]$INFO[Player.Duration, / ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31003] ]</value> -->
+        <!-- <value condition="!VideoPlayer.Content(livetv)">$INFO[Player.Time]$INFO[Player.Duration, / ,]$INFO[Player.FinishTime ,  •  $LOCALIZE[31485] ]</value> -->
         <value condition="VideoPlayer.Content(livetv)">$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</value>
     </variable>
 
