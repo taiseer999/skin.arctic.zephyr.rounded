@@ -457,12 +457,53 @@
 
     <!-- COLOR - VIEWS LIST - INDICATOR -->
 
+    <variable name="Color_Indicator_Empty_DBID_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">orange</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
     <variable name="Color_Indicator_Set_View_List">
-        <value>FF8E44AD</value>
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">FF8E44AD</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
     </variable>
 
     <variable name="Color_Indicator_Version_View_List">
-        <value>FF8E44AD</value>
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">FF8E44AD</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_In_Progress_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">$VAR[Color_Indicator_Background_In_Progress]</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_Watched_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">$VAR[Color_Indicator_Background_Watched]</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_UnWatched_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">$VAR[Color_Indicator_Background_UnWatched]</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_New_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">$VAR[Color_Indicator_Background_New]</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_Is_Playing_View_List">
+        <value condition="!Skin.HasSetting(enable.furniture.markers.view.list.monochrome)">$VAR[Color_Indicator_Background_Is_Playing]</value>
+        <value>$VAR[Color_Indicator_Monochrome_View_List]</value>
+    </variable>
+
+    <variable name="Color_Indicator_Monochrome_View_List">
+        <value>Dark2</value>
+    </variable>
+
+    <variable name="Color_IsPlaying_NoFocus_Item_View_List">
+        <value condition="String.IsEqual(Skin.CurrentColourTheme,Light)">2d141414</value>
+        <value>4DC5C5C5</value>
     </variable>
 
     <!-- COLOR - POSTER - HEADER - STATUS -->
@@ -508,6 +549,9 @@
         <value>FF0ABDE3</value>
     </variable>
 
+    <variable name="Color_Label_TMDb">
+        <value>FFEDEDED</value>
+    </variable>
 
     <!-- COLOR - POSTER - FOOTER - BACKGROUND -->
 
@@ -536,7 +580,7 @@
     </variable>
 
     <variable name="Color_Background_TMDb">
-        <value>FF48DBFB</value>
+        <value>FF4B98B4</value>
     </variable>
 
     <variable name="Color_Background_Others">
@@ -559,9 +603,5 @@
 
     <variable name="Color_Icon_Light">
 		<value>FFD6AD05</value>
-    </variable>
-
-    <variable name="Color_Hub_Watched_Poster">
-        <value>UnWatchedIcons</value>
     </variable>
 </includes>
